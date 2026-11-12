@@ -9,14 +9,7 @@ themeBtn.addEventListener("click", () => {
   themeBtn.textContent = next === "dark" ? "☀️" : "🌙";
 });
 
-// Trigger Curtain Reveal on Page Load
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    document.querySelector(".hero").classList.add("revealed");
-  }, 200);
-});
-
-// 2. Dynamic Role Cycling
+// 2. Hero Flip-Card Role Switcher
 const roles = [
   "Data Scientist",
   "Python Backend Engineer",
@@ -24,16 +17,19 @@ const roles = [
   "PostgreSQL & ERP Architect"
 ];
 let roleIndex = 0;
+const roleCard = document.getElementById("role-card");
 const roleText = document.getElementById("role-text");
 
 setInterval(() => {
-  roleIndex = (roleIndex + 1) % roles.length;
-  roleText.style.opacity = 0;
+  roleCard.classList.add("flipping");
   setTimeout(() => {
+    roleIndex = (roleIndex + 1) % roles.length;
     roleText.textContent = roles[roleIndex];
-    roleText.style.opacity = 1;
-  }, 200);
-}, 3000);
+  }, 300);
+  setTimeout(() => {
+    roleCard.classList.remove("flipping");
+  }, 600);
+}, 2800);
 
 // 3. Project Details Data for Interactive Doors
 const projectData = {
