@@ -1,337 +1,215 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zanish Rohail | Data Scientist & Python Engineer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    },
-                    colors: {
-                        emerald: {
-                            850: '#064e3b',
-                            950: '#022c22',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Smooth 3D Card Tilt & Glass Effects */
-        .tilt-card {
-            transform-style: preserve-3d;
-            transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
-        }
-        .tilt-card:hover {
-            box-shadow: 0 25px 50px -12px rgba(6, 78, 59, 0.15);
-        }
-        .dark .tilt-card:hover {
-            box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.15);
-        }
-        .glass-nav {
-            background: rgba(248, 250, 252, 0.8);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-        }
-        .dark .glass-nav {
-            background: rgba(15, 23, 42, 0.8);
-        }
-        .hero-grid {
-            background-size: 40px 40px;
-            background-image: 
-                linear-gradient(to right, rgba(6, 78, 59, 0.04) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(6, 78, 59, 0.04) 1px, transparent 1px);
-        }
-        .dark .hero-grid {
-            background-image: 
-                linear-gradient(to right, rgba(52, 211, 153, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(52, 211, 153, 0.05) 1px, transparent 1px);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zanish Rohail | Data Scientist & Python Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 hero-grid relative overflow-x-hidden">
+<body>
 
-    <!-- Subtle Floating Ambient Shapes -->
-    <div class="fixed top-20 left-10 w-72 h-72 bg-emerald-400/15 dark:bg-emerald-500/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-    <div class="fixed bottom-10 right-10 w-96 h-96 bg-teal-400/15 dark:bg-teal-500/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+  <!-- Top Navigation -->
+  <nav class="navbar">
+    <div class="logo">ZR<span>.</span></div>
+    <div class="nav-links">
+      <a href="#doors">Projects</a>
+      <a href="#timeline">Journey</a>
+      <a href="#contact">Contact</a>
+      <button id="theme-toggle" aria-label="Toggle Theme">☀️</button>
+    </div>
+  </nav>
 
-    <!-- Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200/80 dark:border-slate-800">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="text-xl font-extrabold tracking-tight text-emerald-900 dark:text-emerald-400 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-emerald-800 text-white flex items-center justify-center text-sm shadow-md">ZR</span>
-                <span>Zanish Rohail</span>
-            </a>
+  <!-- 1. Split-Flap Flip-Card Hero -->
+  <header class="hero">
+    <p class="eyebrow">HI, I'M ZANISH ROHAIL</p>
+    <h1>Building scalable data systems as a</h1>
+    
+    <div class="flip-container">
+      <div class="flip-card" id="role-card">
+        <div class="flip-face front" id="role-text">Data Scientist</div>
+        <div class="flip-face back" id="role-next">Python Engineer</div>
+      </div>
+    </div>
 
-            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600 dark:text-slate-300">
-                <a href="#projects" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition">Projects</a>
-                <a href="#skills" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition">Skills</a>
-                <a href="#experience" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition">Experience</a>
-            </nav>
+    <p class="hero-sub">
+      Specializing in relational PostgreSQL modeling, production Flask APIs, NLP inference pipelines, and statistical analytics.
+    </p>
+    <div class="hero-cta">
+      <a href="#doors" class="btn-primary">Explore Behind the Doors ↓</a>
+      <a href="https://github.com/zanishcodes7" target="_blank" class="btn-outline">GitHub Profile</a>
+    </div>
+  </header>
 
-            <div class="flex items-center gap-3">
-                <!-- Theme Toggle Button -->
-                <button id="theme-toggle" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:border-emerald-600 transition flex items-center justify-center shadow-sm">
-                    <i id="theme-icon" class="fa-solid fa-moon"></i>
-                </button>
+  <!-- 2. "Magic Happens Behind the Doors" Interactive Section -->
+  <section id="doors" class="doors-section">
+    <div class="section-header">
+      <span class="tag">INTERACTIVE SHOWCASE</span>
+      <h2>Magic Happens Behind the Doors</h2>
+      <p>Hover to peek inside, or click any door to inspect the architecture and code.</p>
+    </div>
 
-                <!-- Resume Button -->
-                <a href="./resume.pdf" target="_blank" class="px-5 py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white font-semibold text-sm shadow-md shadow-emerald-900/10 transition flex items-center gap-2">
-                    <i class="fa-solid fa-file-pdf"></i> <span>Resume</span>
-                </a>
-            </div>
+    <div class="doors-grid">
+      <!-- Door 1: NLP & ML -->
+      <div class="door-wrapper" data-project="nlp" style="--door-accent: #10b981;">
+        <div class="door-frame">
+          <div class="door-interior">
+            <span class="badge">NLP & Inference</span>
+            <h3>3-Tier Text Engine</h3>
+            <ul>
+              <li>&lt;2ms Regex Tier 1 routing</li>
+              <li>TF-IDF + LLM fallback</li>
+              <li>Live Flask telemetry API</li>
+            </ul>
+            <span class="click-hint">Click to enter →</span>
+          </div>
+          <div class="door-leaf">
+            <span class="door-number">01</span>
+            <h3>NLP & Machine Learning</h3>
+            <div class="door-handle"></div>
+          </div>
         </div>
-    </header>
+      </div>
 
-    <!-- Main Container -->
-    <main class="max-w-6xl mx-auto px-6 pt-32 pb-20">
+      <!-- Door 2: Data Pipelines & ETL -->
+      <div class="door-wrapper" data-project="nasa" style="--door-accent: #3b82f6;">
+        <div class="door-frame">
+          <div class="door-interior">
+            <span class="badge">ETL & Statistics</span>
+            <h3>NASA Asteroid Analysis</h3>
+            <ul>
+              <li>Live NASA REST JSON ETL</li>
+              <li>SciPy Welch's t-tests</li>
+              <li>Interactive Chart.js UI</li>
+            </ul>
+            <span class="click-hint">Click to enter →</span>
+          </div>
+          <div class="door-leaf">
+            <span class="door-number">02</span>
+            <h3>ETL & Statistical Analysis</h3>
+            <div class="door-handle"></div>
+          </div>
+        </div>
+      </div>
 
-        <!-- Hero Section -->
-        <section class="py-16 md:py-24 flex flex-col items-center text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100/80 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-300 text-xs font-bold mb-6">
-                <span class="w-2 h-2 rounded-full bg-emerald-600 animate-ping"></span> Open to Data Science & Python Engineering Roles
-            </div>
+      <!-- Door 3: Similarity & Search APIs -->
+      <div class="door-wrapper" data-project="recommender" style="--door-accent: #a855f7;">
+        <div class="door-frame">
+          <div class="door-interior">
+            <span class="badge">Vectorization</span>
+            <h3>Movie Recommender</h3>
+            <ul>
+              <li>5,000-title TMDB matrix</li>
+              <li>Cosine similarity engine</li>
+              <li>Autocomplete Flask API</li>
+            </ul>
+            <span class="click-hint">Click to enter →</span>
+          </div>
+          <div class="door-leaf">
+            <span class="door-number">03</span>
+            <h3>Search & Recommender APIs</h3>
+            <div class="door-handle"></div>
+          </div>
+        </div>
+      </div>
 
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white max-w-4xl leading-tight mb-6">
-                Building Production <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 to-teal-600 dark:from-emerald-400 dark:to-teal-300">Data Pipelines</span> & Backend Systems
-            </h1>
+      <!-- Door 4: Enterprise ERP & PostgreSQL -->
+      <div class="door-wrapper" data-project="erp" style="--door-accent: #f59e0b;">
+        <div class="door-frame">
+          <div class="door-interior">
+            <span class="badge">Production Systems</span>
+            <h3>Odoo & PostgreSQL</h3>
+            <ul>
+              <li>Relational ERP schemas</li>
+              <li>Automated data wizards</li>
+              <li>QWeb analytical reports</li>
+            </ul>
+            <span class="click-hint">Click to enter →</span>
+          </div>
+          <div class="door-leaf">
+            <span class="door-number">04</span>
+            <h3>Database & ERP Engineering</h3>
+            <div class="door-handle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <p class="text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mb-10 leading-relaxed">
-                BS Data Science undergraduate at NUML backed by <strong class="font-semibold text-slate-900 dark:text-white">1 year of software engineering experience</strong> in Python, Flask, PostgreSQL, and Odoo ERP architectures.
-            </p>
+  <!-- Project Detail Drawer/Modal -->
+  <div id="project-modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="close-modal" class="close-btn">&times;</button>
+      <span id="modal-tag" class="badge"></span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-desc"></p>
+      <div id="modal-stack" class="tech-pills"></div>
+      <ul id="modal-bullets" class="modal-list"></ul>
+      <div class="modal-actions">
+        <a id="modal-github" href="#" target="_blank" class="btn-primary">View Repository on GitHub ↗</a>
+      </div>
+    </div>
+  </div>
 
-            <div class="flex flex-wrap justify-center gap-4 mb-10">
-                <a href="#projects" class="px-7 py-3.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white font-bold text-sm shadow-lg shadow-emerald-900/15 transition transform hover:-translate-y-0.5">
-                    Explore Featured Work <i class="fa-solid fa-arrow-down ml-2"></i>
-                </a>
-                <a href="https://github.com/zanishcodes7" target="_blank" class="px-7 py-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-bold text-sm hover:border-emerald-600 transition shadow-sm flex items-center gap-2">
-                    <i class="fa-brands fa-github text-lg"></i> GitHub Profile
-                </a>
-            </div>
+  <!-- 3. Sticky "Let's Go Back in Time" Timeline -->
+  <section id="timeline" class="timeline-section">
+    <div class="section-header">
+      <span class="tag">EXPERIENCE & EDUCATION</span>
+      <h2>Let's Go Back in Time</h2>
+    </div>
 
-            <div class="flex items-center gap-6 text-xl text-slate-500 dark:text-slate-400">
-                <a href="https://github.com/zanishcodes7" target="_blank" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/zanish-rohail" target="_blank" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="mailto:zanish.rohail11@gmail.com" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-        </section>
+    <div class="timeline-layout">
+      <!-- Sticky Year Display -->
+      <div class="sticky-year-box">
+        <span class="year-label">YEAR</span>
+        <div id="active-year" class="active-year">2026</div>
+      </div>
 
-        <!-- Projects Section with 3D Interactive Cards -->
-        <section id="projects" class="py-16">
-            <div class="mb-12">
-                <span class="text-xs font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">Selected Work</span>
-                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1">Featured Data Science & Engineering Projects</h2>
-            </div>
+      <!-- Scrolling Milestones -->
+      <div class="timeline-cards">
+        <div class="timeline-card" data-year="2026">
+          <span class="card-period">2025 – Present</span>
+          <h3>Odoo & Python Developer — IT Legends</h3>
+          <p>Engineered relational PostgreSQL data models and production ERP workflows across sales, project operations, and financial reporting. Built automated data-conversion wizards and structured QWeb/PDF analytical reports.</p>
+          <div class="tech-pills">
+            <span>Python</span><span>PostgreSQL</span><span>Odoo ORM</span><span>SQL</span>
+          </div>
+        </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- Card 1 -->
-                <div class="tilt-card bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-7 border border-slate-200/80 dark:border-slate-800 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-5">
-                            <div class="w-11 h-11 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-400 flex items-center justify-center text-lg">
-                                <i class="fa-solid fa-layer-group"></i>
-                            </div>
-                            <span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800">ML & NLP</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2.5">3-Tier Hybrid Classification Engine</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                            Multi-stage text classification pipeline combining deterministic Regex rules, Scikit-Learn ML models, and automated fallback handling inside a Flask web dashboard.
-                        </p>
-                    </div>
-                    <div>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Python</span>
-                            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Flask</span>
-                            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Scikit-Learn</span>
-                        </div>
-                        <a href="https://github.com/zanishcodes7/Text-Classification-Engine" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold text-emerald-800 dark:text-emerald-400 hover:underline">
-                            View Source Code <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                </div>
+        <div class="timeline-card" data-year="2025">
+          <span class="card-period">2025 – 2026</span>
+          <h3>Applied ML & Backend Engineering Projects</h3>
+          <p>Architected cascading NLP classification engines, NASA telemetry ETL pipelines with SciPy hypothesis testing, and low-latency Flask REST microservices.</p>
+          <div class="tech-pills">
+            <span>Flask</span><span>Scikit-Learn</span><span>pandas</span><span>SciPy</span>
+          </div>
+        </div>
 
-                <!-- Card 2 -->
-                <div class="tilt-card bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-7 border border-slate-200/80 dark:border-slate-800 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-5">
-                            <div class="w-11 h-11 rounded-xl bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-400 flex items-center justify-center text-lg">
-                                <i class="fa-solid fa-meteor"></i>
-                            </div>
-                            <span class="text-xs font-bold px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950 text-teal-800 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800">Statistical Analysis</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2.5">NASA Asteroid Hazard Analysis</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                            Automated ETL pipeline ingesting live NASA NEO telemetry. Conducted Welch's t-test hypothesis testing and built an interactive Flask + Chart.js analytics dashboard.
-                        </p>
-                    </div>
-                    <div>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">pandas</span>
-                            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">SciPy</span>
-                            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Chart.js</span>
-                        </div>
-                        <a href="https://github.com/zanishcodes7/nasa-asteroid-hazard-analysis" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold text-emerald-800 dark:text-emerald-400 hover:underline">
-                            View Source Code <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                </div>
+        <div class="timeline-card" data-year="2024">
+          <span class="card-period">In Progress</span>
+          <h3>BS Data Science — NUML, Islamabad</h3>
+          <p>Focused on statistical inference, linear algebra, data structures, relational database systems, and algorithmic problem solving.</p>
+          <div class="tech-pills">
+            <span>Data Structures</span><span>Probability & Stats</span><span>Linear Algebra</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                <!-- Card 3 -->
-                <div class="tilt-card bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-7 border border-slate-200/80 dark:border-slate-800 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-5">
-                            <div class="w-11 h-11 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-400 flex items-center justify-center text-lg">
-                                <i class="fa-solid fa-film"></i>
-                            </div>
-                            <span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800">Recommendation Engine</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2.5">Content-Based Movie Recommender</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                            Real-time similarity engine over 5,000+ TMDB titles utilizing TF-IDF vectorization and cosine similarity scoring with live autocomplete search in Flask.
-                        </p>
-                    </div>
-                    <div>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">TF-IDF</span>
-                            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">NumPy</span>
-                            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Flask</span>
-                        </div>
-                        <a href="https://github.com/zanishcodes7/movie-recommender-tfidf" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold text-emerald-800 dark:text-emerald-400 hover:underline">
-                            View Source Code <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                </div>
+  <!-- Footer -->
+  <footer id="contact" class="footer">
+    <h2>Ready to build data-driven products?</h2>
+    <p>Rawalpindi / Islamabad, Pakistan • Available for Remote & Full-Time Roles</p>
+    <div class="footer-links">
+      <a href="mailto:zanish.rohail11@gmail.com">zanish.rohail11@gmail.com</a>
+      <a href="https://linkedin.com/in/zanish-rohail" target="_blank">LinkedIn</a>
+      <a href="https://github.com/zanishcodes7" target="_blank">GitHub</a>
+    </div>
+  </footer>
 
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-16">
-            <div class="mb-10">
-                <span class="text-xs font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">Capabilities</span>
-                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1">Technical Stack</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white dark:bg-slate-900 p-7 rounded-2xl border border-slate-200/80 dark:border-slate-800">
-                    <div class="text-emerald-700 dark:text-emerald-400 text-xl mb-3"><i class="fa-solid fa-chart-pie"></i></div>
-                    <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">Data Science & ML</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Python, pandas, NumPy, Scikit-Learn, SciPy, statistical hypothesis testing, TF-IDF vectorization, and NLP pipelines.</p>
-                </div>
-                <div class="bg-white dark:bg-slate-900 p-7 rounded-2xl border border-slate-200/80 dark:border-slate-800">
-                    <div class="text-emerald-700 dark:text-emerald-400 text-xl mb-3"><i class="fa-solid fa-database"></i></div>
-                    <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">Backend & Databases</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Flask, Odoo ORM & ERP modules, PostgreSQL relational data modeling, SQL auditing, REST APIs, and pytest.</p>
-                </div>
-                <div class="bg-white dark:bg-slate-900 p-7 rounded-2xl border border-slate-200/80 dark:border-slate-800">
-                    <div class="text-emerald-700 dark:text-emerald-400 text-xl mb-3"><i class="fa-solid fa-laptop-code"></i></div>
-                    <h3 class="font-bold text-lg text-slate-900 dark:text-white mb-2">Visualization & Workflow</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Chart.js, Matplotlib, Tailwind CSS, Git/GitHub version control, and VS Code / PowerShell engineering workflows.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience & Education -->
-        <section id="experience" class="py-16">
-            <div class="bg-white dark:bg-slate-900 rounded-2xl p-8 md:p-10 border border-slate-200/80 dark:border-slate-800">
-                <span class="text-xs font-bold uppercase tracking-widest text-emerald-700 dark:text-emerald-400">Track Record</span>
-                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1 mb-8">Experience & Education</h2>
-
-                <div class="space-y-8">
-                    <div class="border-l-2 border-emerald-700 dark:border-emerald-500 pl-6 relative">
-                        <span class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-emerald-700 dark:bg-emerald-500"></span>
-                        <div class="flex flex-wrap justify-between items-baseline gap-2 mb-1">
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Odoo Developer</h3>
-                            <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300">1 Year Experience</span>
-                        </div>
-                        <p class="text-sm font-medium text-emerald-700 dark:text-emerald-400 mb-2">IT Legends</p>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                            Engineered custom ERP addons, relational PostgreSQL data models, automated conversion wizards, and QWeb/PDF reporting templates across sales and project management workflows.
-                        </p>
-                    </div>
-
-                    <div class="border-l-2 border-slate-300 dark:border-slate-700 pl-6 relative">
-                        <span class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-slate-400 dark:bg-slate-600"></span>
-                        <div class="flex flex-wrap justify-between items-baseline gap-2 mb-1">
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">BS Data Science</h3>
-                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">In Progress</span>
-                        </div>
-                        <p class="text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">NUML, Rawalpindi</p>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                            Focused on data structures, probability & statistics, linear algebra, and machine learning systems.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Footer CTA -->
-        <section class="py-12">
-            <div class="bg-emerald-900 dark:bg-emerald-950 rounded-3xl p-10 md:p-12 text-center text-white shadow-xl border border-emerald-800">
-                <h2 class="text-2xl md:text-3xl font-extrabold mb-3">Ready to Contribute to Your Engineering Team</h2>
-                <p class="text-emerald-100/80 text-sm max-w-lg mx-auto mb-8">
-                    Available for Junior Data Scientist, Data Analyst, and Python/Flask Backend Engineering roles.
-                </p>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="mailto:zanish.rohail11@gmail.com" class="px-7 py-3.5 rounded-xl bg-white text-emerald-950 font-bold text-sm hover:bg-emerald-50 transition shadow-md">
-                        <i class="fa-solid fa-envelope mr-2"></i> zanish.rohail11@gmail.com
-                    </a>
-                    <a href="https://www.linkedin.com/in/zanish-rohail" target="_blank" class="px-7 py-3.5 rounded-xl bg-emerald-800 text-white font-bold text-sm border border-emerald-700 hover:bg-emerald-700 transition">
-                        <i class="fa-brands fa-linkedin mr-2"></i> Connect on LinkedIn
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs text-slate-500 dark:text-slate-400">
-        <p>© 2026 Zanish Rohail • Rawalpindi / Islamabad, Pakistan</p>
-    </footer>
-
-    <!-- Interactive 3D Tilt & Theme Toggle Script -->
-    <script>
-        // Theme Toggle Logic
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const htmlEl = document.documentElement;
-
-        themeToggle.addEventListener('click', () => {
-            htmlEl.classList.toggle('dark');
-            if (htmlEl.classList.contains('dark')) {
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
-            }
-        });
-
-        // Interactive 3D Card Tilt Effect
-        document.querySelectorAll('.tilt-card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * -6;
-                const rotateY = ((x - centerX) / centerX) * 6;
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-            });
-        });
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>
