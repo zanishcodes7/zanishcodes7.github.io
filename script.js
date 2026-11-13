@@ -11,7 +11,7 @@ themeBtn.addEventListener("click", () => {
   themeBtn.textContent = next === "light" ? "🌙" : "☀️";
 });
 
-// 2. Dynamic Role Cycling
+// 2. Mechanical 3D Split-Flap Role Switcher (Auto + Click to Flip)
 const roles = [
   "Data Scientist",
   "Python Backend Engineer",
@@ -19,16 +19,26 @@ const roles = [
   "PostgreSQL & ERP Architect"
 ];
 let roleIndex = 0;
+const roleCard = document.getElementById("role-card");
 const roleText = document.getElementById("role-text");
+const flapTrigger = document.getElementById("flap-trigger");
 
-setInterval(() => {
-  roleIndex = (roleIndex + 1) % roles.length;
-  roleText.style.opacity = 0;
+function flipRole() {
+  roleCard.classList.add("flipping");
   setTimeout(() => {
+    roleIndex = (roleIndex + 1) % roles.length;
     roleText.textContent = roles[roleIndex];
-    roleText.style.opacity = 1;
-  }, 250);
-}, 3000);
+    roleCard.classList.remove("flipping");
+  }, 260);
+}
+
+let autoFlip = setInterval(flipRole, 2800);
+
+flapTrigger.addEventListener("click", () => {
+  clearInterval(autoFlip);
+  flipRole();
+  autoFlip = setInterval(flipRole, 2800);
+});
 
 // 3. Project Details Data for Interactive Doors
 const projectData = {
@@ -123,7 +133,7 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.6 }
+  { threshold: 0.55 }
 );
 
 timelineCards.forEach((card) => observer.observe(card));
