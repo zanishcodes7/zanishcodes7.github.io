@@ -2,7 +2,6 @@
 const themeBtn = document.getElementById("theme-toggle");
 const htmlEl = document.documentElement;
 
-// Set initial icon based on default light theme
 themeBtn.textContent = "🌙";
 
 themeBtn.addEventListener("click", () => {
