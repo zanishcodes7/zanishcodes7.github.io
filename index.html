@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,32 +18,36 @@
       <a href="#doors">Projects</a>
       <a href="#timeline">Journey</a>
       <a href="#contact">Contact</a>
-      <button id="theme-toggle" aria-label="Toggle Theme">☀️</button>
+      <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
     </div>
   </nav>
 
-  <!-- 1. Split-Flap Flip-Card Hero -->
+  <!-- Hero Section -->
   <header class="hero">
-    <p class="eyebrow">HI, I'M ZANISH ROHAIL</p>
-    <h1>Building scalable data systems as a</h1>
-    
-    <div class="flip-container">
-      <div class="flip-card" id="role-card">
-        <div class="flip-face front" id="role-text">Data Scientist</div>
-        <div class="flip-face back" id="role-next">Python Engineer</div>
+    <div class="hero-content">
+      <p class="eyebrow">HI, I'M ZANISH ROHAIL</p>
+      <h1>Building scalable data systems as a</h1>
+      
+      <div class="flip-container">
+        <div class="flip-card" id="role-card">
+          <div class="flip-face front" id="role-text">Data Scientist</div>
+        </div>
       </div>
-    </div>
 
-    <p class="hero-sub">
-      Specializing in relational PostgreSQL modeling, production Flask APIs, NLP inference pipelines, and statistical analytics.
-    </p>
-    <div class="hero-cta">
-      <a href="#doors" class="btn-primary">Explore Behind the Doors ↓</a>
-      <a href="https://github.com/zanishcodes7" target="_blank" class="btn-outline">GitHub Profile</a>
+      <p class="hero-sub">
+        Specializing in relational PostgreSQL modeling, production Flask APIs, NLP inference pipelines, and statistical analytics.
+      </p>
+      <div class="hero-cta">
+        <a href="#doors" class="btn-primary">Explore Projects ↓</a>
+        <a href="https://github.com/zanishcodes7" target="_blank" class="btn-outline">GitHub Profile</a>
+      </div>
     </div>
   </header>
 
-  <!-- 2. "Magic Happens Behind the Doors" Interactive Section -->
+  <!-- Torn Paper Transition Divider -->
+  <div class="torn-divider"></div>
+
+  <!-- Interactive Project Doors Section -->
   <section id="doors" class="doors-section">
     <div class="section-header">
       <span class="tag">INTERACTIVE SHOWCASE</span>
@@ -53,7 +57,7 @@
 
     <div class="doors-grid">
       <!-- Door 1: NLP & ML -->
-      <div class="door-wrapper" data-project="nlp" style="--door-accent: #10b981;">
+      <div class="door-wrapper" data-project="nlp" style="--door-accent: #0284c7;">
         <div class="door-frame">
           <div class="door-interior">
             <span class="badge">NLP & Inference</span>
@@ -74,7 +78,7 @@
       </div>
 
       <!-- Door 2: Data Pipelines & ETL -->
-      <div class="door-wrapper" data-project="nasa" style="--door-accent: #3b82f6;">
+      <div class="door-wrapper" data-project="nasa" style="--door-accent: #059669;">
         <div class="door-frame">
           <div class="door-interior">
             <span class="badge">ETL & Statistics</span>
@@ -95,7 +99,7 @@
       </div>
 
       <!-- Door 3: Similarity & Search APIs -->
-      <div class="door-wrapper" data-project="recommender" style="--door-accent: #a855f7;">
+      <div class="door-wrapper" data-project="recommender" style="--door-accent: #7c3aed;">
         <div class="door-frame">
           <div class="door-interior">
             <span class="badge">Vectorization</span>
@@ -116,7 +120,7 @@
       </div>
 
       <!-- Door 4: Enterprise ERP & PostgreSQL -->
-      <div class="door-wrapper" data-project="erp" style="--door-accent: #f59e0b;">
+      <div class="door-wrapper" data-project="erp" style="--door-accent: #d97706;">
         <div class="door-frame">
           <div class="door-interior">
             <span class="badge">Production Systems</span>
@@ -138,7 +142,7 @@
     </div>
   </section>
 
-  <!-- Project Detail Drawer/Modal -->
+  <!-- Project Detail Modal -->
   <div id="project-modal" class="modal hidden">
     <div class="modal-content">
       <button id="close-modal" class="close-btn">&times;</button>
@@ -153,7 +157,10 @@
     </div>
   </div>
 
-  <!-- 3. Sticky "Let's Go Back in Time" Timeline -->
+  <!-- Torn Paper Transition Divider -->
+  <div class="torn-divider"></div>
+
+  <!-- Sticky Timeline -->
   <section id="timeline" class="timeline-section">
     <div class="section-header">
       <span class="tag">EXPERIENCE & EDUCATION</span>
@@ -161,13 +168,11 @@
     </div>
 
     <div class="timeline-layout">
-      <!-- Sticky Year Display -->
       <div class="sticky-year-box">
         <span class="year-label">YEAR</span>
         <div id="active-year" class="active-year">2026</div>
       </div>
 
-      <!-- Scrolling Milestones -->
       <div class="timeline-cards">
         <div class="timeline-card" data-year="2026">
           <span class="card-period">2025 – Present</span>

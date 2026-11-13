@@ -1,15 +1,18 @@
-// 1. Theme Switcher (Dark / Light)
+// 1. Theme Switcher (Default Light, toggles to Dark)
 const themeBtn = document.getElementById("theme-toggle");
 const htmlEl = document.documentElement;
 
+// Set initial icon based on default light theme
+themeBtn.textContent = "🌙";
+
 themeBtn.addEventListener("click", () => {
   const current = htmlEl.getAttribute("data-theme");
-  const next = current === "dark" ? "light" : "dark";
+  const next = current === "light" ? "dark" : "light";
   htmlEl.setAttribute("data-theme", next);
-  themeBtn.textContent = next === "dark" ? "☀️" : "🌙";
+  themeBtn.textContent = next === "light" ? "🌙" : "☀️";
 });
 
-// 2. Hero Flip-Card Role Switcher
+// 2. Dynamic Role Cycling
 const roles = [
   "Data Scientist",
   "Python Backend Engineer",
@@ -17,19 +20,16 @@ const roles = [
   "PostgreSQL & ERP Architect"
 ];
 let roleIndex = 0;
-const roleCard = document.getElementById("role-card");
 const roleText = document.getElementById("role-text");
 
 setInterval(() => {
-  roleCard.classList.add("flipping");
+  roleIndex = (roleIndex + 1) % roles.length;
+  roleText.style.opacity = 0;
   setTimeout(() => {
-    roleIndex = (roleIndex + 1) % roles.length;
     roleText.textContent = roles[roleIndex];
-  }, 300);
-  setTimeout(() => {
-    roleCard.classList.remove("flipping");
-  }, 600);
-}, 2800);
+    roleText.style.opacity = 1;
+  }, 250);
+}, 3000);
 
 // 3. Project Details Data for Interactive Doors
 const projectData = {
