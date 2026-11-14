@@ -1,68 +1,13 @@
 /* =====================================================
-   PALETTES
-   Set on <html>: data-palette="navy-pink | cream-coral | forest-sand"
-   Light/dark set on <html>: data-theme="light | dark"
+   ZANISH ROHAIL · PORTFOLIO
+   Palette: Forest Green & Sand Beige
+   Theme: data-theme="light" | "dark" on <html>
    ===================================================== */
 
-/* ---- 1. Navy · White · Hot Pink (default) ---- */
-:root,
-[data-palette="navy-pink"] {
-  --bg: #f6f7fb;
-  --surface: #ffffff;
-  --surface-alt: #e9edf5;
-  --text: #0b1f3a;
-  --text-muted: #5a6a85;
-  --accent: #e6007e;
-  --secondary-accent: #14325c;
-  --on-accent: #ffffff;
-  --border: rgba(11, 31, 58, 0.12);
-  --grid-dot: rgba(11, 31, 58, 0.09);
-  --door-number-bg: rgba(255, 255, 255, 0.95);
-}
-[data-palette="navy-pink"][data-theme="dark"] {
-  --bg: #0b1f3a;
-  --surface: #132d52;
-  --surface-alt: #1a3863;
-  --text: #ffffff;
-  --text-muted: #a9b8d0;
-  --accent: #ff4fa3;
-  --secondary-accent: #ffffff;
-  --on-accent: #0b1f3a;
-  --border: rgba(255, 255, 255, 0.12);
-  --grid-dot: rgba(255, 255, 255, 0.08);
-  --door-number-bg: rgba(19, 45, 82, 0.85);
-}
-
-/* ---- 2. Navy · Cream · Coral ---- */
-[data-palette="cream-coral"] {
-  --bg: #faf6ee;
-  --surface: #fffdf8;
-  --surface-alt: #f1eadb;
-  --text: #14213d;
-  --text-muted: #5b6578;
-  --accent: #e8604c;
-  --secondary-accent: #14213d;
-  --on-accent: #ffffff;
-  --border: rgba(20, 33, 61, 0.12);
-  --grid-dot: rgba(20, 33, 61, 0.09);
-  --door-number-bg: rgba(255, 253, 248, 0.95);
-}
-[data-palette="cream-coral"][data-theme="dark"] {
-  --bg: #14213d;
-  --surface: #1c2e52;
-  --surface-alt: #233a66;
-  --text: #faf6ee;
-  --text-muted: #b8c2d6;
-  --accent: #ff8a73;
-  --secondary-accent: #f5e9d3;
-  --on-accent: #14213d;
-  --border: rgba(250, 246, 238, 0.12);
-  --grid-dot: rgba(250, 246, 238, 0.08);
-  --door-number-bg: rgba(28, 46, 82, 0.85);
-}
-
-/* ---- 3. Forest Green · Sand Beige ---- */
-[data-palette="forest-sand"] {
+/* =====================================================
+   1. DESIGN TOKENS
+   ===================================================== */
+:root {
   --bg: #f3ecdc;
   --surface: #fbf7ee;
   --surface-alt: #e8dfc9;
@@ -74,8 +19,10 @@
   --border: rgba(29, 51, 39, 0.14);
   --grid-dot: rgba(29, 51, 39, 0.09);
   --door-number-bg: rgba(251, 247, 238, 0.95);
+  --shadow: rgba(0, 0, 0, 0.1);
 }
-[data-palette="forest-sand"][data-theme="dark"] {
+
+[data-theme="dark"] {
   --bg: #13261d;
   --surface: #1b3327;
   --surface-alt: #224131;
@@ -87,10 +34,11 @@
   --border: rgba(243, 236, 220, 0.12);
   --grid-dot: rgba(243, 236, 220, 0.08);
   --door-number-bg: rgba(27, 51, 39, 0.85);
+  --shadow: rgba(0, 0, 0, 0.35);
 }
 
 /* =====================================================
-   RESET AND GLOBAL
+   2. RESET AND BASE
    ===================================================== */
 * {
   box-sizing: border-box;
@@ -106,8 +54,16 @@ html {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+body {
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+}
+
 /* =====================================================
-   NAVIGATION
+   3. NAVBAR
    ===================================================== */
 .navbar {
   display: flex;
@@ -117,7 +73,7 @@ html {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
@@ -151,74 +107,54 @@ html {
   color: var(--text);
 }
 
-.nav-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
 #theme-toggle {
-  background: var(--surface-alt);
+  background: var(--surface);
   border: 1px solid var(--border);
   color: var(--text);
-  padding: 0.45rem 0.65rem;
-  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 1rem;
+  display: grid;
+  place-items: center;
   transition: background-color 0.2s, transform 0.2s;
 }
 
 #theme-toggle:hover {
-  background-color: var(--surface);
+  background: var(--surface-alt);
   transform: translateY(-1px);
 }
 
-/* Palette picker */
-.palette-picker {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-}
-
-.palette-picker button {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  border: 2px solid var(--border);
-  cursor: pointer;
-  transition: transform 0.2s, border-color 0.2s;
-}
-
-.palette-picker button:hover {
-  transform: scale(1.1);
-}
-
-.palette-picker button[aria-pressed="true"] {
-  border-color: var(--text);
-}
-
-[data-p="navy-pink"]   { background: linear-gradient(135deg, #0b1f3a 50%, #e6007e 50%); }
-[data-p="cream-coral"] { background: linear-gradient(135deg, #14213d 50%, #ff8a73 50%); }
-[data-p="forest-sand"] { background: linear-gradient(135deg, #13261d 50%, #c9a96e 50%); }
-
 /* =====================================================
-   HERO
+   4. HERO
    ===================================================== */
 .hero {
-  min-height: 84vh;
+  min-height: 88vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 4.5rem 8%;
+  padding: 5rem 8%;
   background-image: radial-gradient(var(--grid-dot) 1.5px, transparent 1.5px);
   background-size: 26px 26px;
   border-bottom: 1px solid var(--border);
 }
 
-.hero-content {
-  max-width: 820px;
+.hero-editorial {
+  justify-content: center;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-left {
+  max-width: 640px;
 }
 
 .status-pill {
@@ -234,7 +170,7 @@ html {
   border: 1px solid var(--border);
   color: var(--text-muted);
   margin-bottom: 1.5rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 10px var(--shadow);
 }
 
 .pulse-dot {
@@ -245,23 +181,28 @@ html {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--secondary-accent) 25%, transparent);
 }
 
-.hero h1 {
-  font-size: clamp(2.1rem, 4.5vw, 3.6rem);
-  font-weight: 800;
-  letter-spacing: -1.2px;
-  margin-bottom: 1.4rem;
+.hero-name {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(4rem, 11vw, 9.5rem);
+  line-height: 0.9;
+  letter-spacing: -2px;
   color: var(--text);
+  margin-bottom: 1.5rem;
 }
 
-/* =====================================================
-   SPLIT-FLAP ROLE CARD
-   ===================================================== */
+.hero-name em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* Split-flap role card */
 .flap-wrapper {
   perspective: 1100px;
-  margin-bottom: 1.85rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
   cursor: pointer;
 }
 
@@ -269,20 +210,20 @@ html {
   position: relative;
   background: var(--surface);
   color: var(--text);
-  padding: 1.1rem 2.75rem;
+  padding: 0.85rem 1.75rem;
   border-radius: 14px;
-  font-size: clamp(1.65rem, 3.8vw, 2.85rem);
+  font-size: clamp(1.2rem, 2.4vw, 1.75rem);
   font-weight: 800;
   letter-spacing: -0.5px;
   border: 1px solid var(--border);
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 18px 38px var(--shadow);
   transform-style: preserve-3d;
   transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
   user-select: none;
 }
 
-[data-theme="dark"] .flap-card {
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
+.flap-card.flipping {
+  transform: rotateX(-90deg);
 }
 
 .flap-hinge {
@@ -295,10 +236,6 @@ html {
   pointer-events: none;
 }
 
-.flap-card.flipping {
-  transform: rotateX(-90deg);
-}
-
 .flap-hint {
   margin-top: 0.6rem;
   font-size: 0.78rem;
@@ -307,22 +244,66 @@ html {
 }
 
 .hero-sub {
-  max-width: 620px;
+  max-width: 520px;
   color: var(--text-muted);
   font-size: 1.1rem;
   line-height: 1.65;
-  margin: 0 auto 2.25rem auto;
+  margin-bottom: 2rem;
 }
 
 .hero-cta {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  justify-content: center;
+}
+
+/* Swatch stack */
+.swatch-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.swatch {
+  height: 96px;
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 24px var(--shadow);
+  transition: transform 0.35s ease, background-color 0.5s ease;
+}
+
+.swatch:hover {
+  transform: translateX(-6px);
+}
+
+/* Each swatch shows its palette color */
+.swatch[data-var="--bg"]               { background: var(--bg); }
+.swatch[data-var="--surface"]          { background: var(--surface); }
+.swatch[data-var="--accent"]           { background: var(--accent); color: var(--on-accent); }
+.swatch[data-var="--secondary-accent"] { background: var(--secondary-accent); color: var(--on-accent); }
+.swatch[data-var="--text"]             { background: var(--text); color: var(--bg); }
+
+.sw-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.sw-hex {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  margin-top: 4px;
 }
 
 /* =====================================================
-   BUTTONS
+   5. BUTTONS
    ===================================================== */
 .btn-primary,
 .btn-outline {
@@ -341,8 +322,7 @@ html {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  background-color: color-mix(in srgb, var(--accent) 85%, #ffffff);
-  box-shadow: 0 8px 26px color-mix(in srgb, var(--accent) 35%, transparent);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 35%, transparent);
 }
 
 .btn-outline {
@@ -353,10 +333,11 @@ html {
 
 .btn-outline:hover {
   border-color: var(--accent);
+  transform: translateY(-2px);
 }
 
 /* =====================================================
-   SECTION HEADERS
+   6. SECTION HEADERS
    ===================================================== */
 .section-header {
   text-align: center;
@@ -385,7 +366,7 @@ html {
 }
 
 /* =====================================================
-   PROJECT DOORS
+   7. PROJECT DOORS
    ===================================================== */
 .doors-section {
   padding: 5.5rem 6%;
@@ -420,7 +401,6 @@ html {
   height: 360px;
 }
 
-/* Each door gets its own accent from the palette */
 .door-wrapper:nth-child(1) { --door-accent: var(--accent); }
 .door-wrapper:nth-child(2) { --door-accent: var(--secondary-accent); }
 .door-wrapper:nth-child(3) { --door-accent: color-mix(in srgb, var(--accent) 65%, var(--text)); }
@@ -434,7 +414,7 @@ html {
   border: 2px solid var(--door-accent);
   background: var(--surface);
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px var(--shadow);
 }
 
 .door-interior {
@@ -469,6 +449,17 @@ html {
   font-weight: 700;
 }
 
+.badge {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent);
+  align-self: flex-start;
+}
+
 .click-hint {
   font-size: 0.85rem;
   font-weight: 700;
@@ -490,7 +481,7 @@ html {
 
 .door-wrapper:hover .door-leaf {
   transform: rotateY(-68deg);
-  box-shadow: 15px 0 35px rgba(0, 0, 0, 0.2);
+  box-shadow: 15px 0 35px var(--shadow);
 }
 
 .door-number {
@@ -515,7 +506,7 @@ html {
 }
 
 /* =====================================================
-   MODAL
+   8. PROJECT MODAL
    ===================================================== */
 .modal {
   position: fixed;
@@ -553,19 +544,10 @@ html {
   color: var(--text-muted);
   font-size: 2rem;
   cursor: pointer;
+  line-height: 1;
 }
 
 .close-btn:hover {
-  color: var(--accent);
-}
-
-.badge {
-  display: inline-block;
-  padding: 0.3rem 0.75rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
   color: var(--accent);
 }
 
@@ -587,8 +569,12 @@ html {
   line-height: 1.7;
 }
 
+.modal-actions {
+  margin-top: 0.5rem;
+}
+
 /* =====================================================
-   TIMELINE
+   9. TIMELINE
    ===================================================== */
 .timeline-section {
   padding: 6rem 8%;
@@ -611,7 +597,7 @@ html {
   padding: 2rem;
   border-radius: 16px;
   text-align: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px var(--shadow);
 }
 
 .year-label {
@@ -645,7 +631,7 @@ html {
 
 .timeline-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 30px var(--shadow);
 }
 
 .card-period {
@@ -692,7 +678,6 @@ html {
   text-decoration: underline;
 }
 
-/* Tech pills */
 .tech-pills {
   display: flex;
   flex-wrap: wrap;
@@ -710,7 +695,7 @@ html {
 }
 
 /* =====================================================
-   FOOTER
+   10. FOOTER
    ===================================================== */
 .footer {
   text-align: center;
@@ -748,15 +733,29 @@ html {
 }
 
 /* =====================================================
-   RESPONSIVE
+   11. RESPONSIVE
    ===================================================== */
+@media (max-width: 860px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .swatch-stack {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .swatch {
+    flex: 1 1 140px;
+    height: 80px;
+  }
+  .swatch:hover {
+    transform: none;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar {
     flex-wrap: wrap;
     gap: 0.75rem;
-  }
-  .nav-controls {
-    flex-wrap: wrap;
   }
   .timeline-layout {
     grid-template-columns: 1fr;
@@ -771,115 +770,4 @@ html {
   .active-year {
     font-size: 2rem;
   }
-}
-/* =====================================================
-   EDITORIAL HERO (reference: oversized serif + swatch stack)
-   ===================================================== */
-.hero-editorial {
-  min-height: 92vh;
-  align-items: stretch;
-  justify-content: center;
-  text-align: left;
-  padding: 5rem 8%;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.hero-left .status-pill { margin-bottom: 1.25rem; }
-
-.hero-name {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(4rem, 11vw, 9.5rem);
-  line-height: 0.9;
-  letter-spacing: -2px;
-  color: var(--text);
-  margin-bottom: 1.5rem;
-}
-
-.hero-name em {
-  font-style: italic;
-  color: var(--accent);
-}
-
-.hero-editorial .flap-wrapper {
-  align-items: flex-start;
-  margin-bottom: 1.5rem;
-}
-
-.hero-editorial .flap-card {
-  font-size: clamp(1.2rem, 2.4vw, 1.75rem);
-  padding: 0.85rem 1.75rem;
-}
-
-.hero-editorial .hero-sub {
-  margin: 0 0 2rem 0;
-  max-width: 520px;
-}
-
-.hero-editorial .hero-cta { justify-content: flex-start; }
-
-/* Swatch stack, same idea as the video: name + hex per color */
-.swatch-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.swatch {
-  position: relative;
-  height: 96px;
-  border-radius: 10px;
-  padding: 14px 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background: var(--sw, var(--surface));
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-  transition: transform 0.35s ease, background-color 0.5s ease;
-}
-
-.swatch:hover { transform: translateX(-6px); }
-
-.swatch[data-var="--bg"]               { --sw: var(--bg); }
-.swatch[data-var="--surface"]          { --sw: var(--surface); }
-.swatch[data-var="--accent"]           { --sw: var(--accent); }
-.swatch[data-var="--secondary-accent"] { --sw: var(--secondary-accent); }
-.swatch[data-var="--text"]             { --sw: var(--text); }
-
-.swatch .sw-name {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--on-accent);
-}
-
-.swatch .sw-hex {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: var(--on-accent);
-  opacity: 0.8;
-  margin-top: 4px;
-}
-
-/* Swatch text must contrast with each swatch, so use the opposite color */
-.swatch[data-var="--bg"] .sw-name,
-.swatch[data-var="--bg"] .sw-hex,
-.swatch[data-var="--surface"] .sw-name,
-.swatch[data-var="--surface"] .sw-hex { color: var(--text); }
-
-@media (max-width: 860px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .swatch-stack { flex-direction: row; flex-wrap: wrap; }
-  .swatch { flex: 1 1 140px; height: 80px; }
-  .swatch:hover { transform: none; }
 }

@@ -1,24 +1,13 @@
 // =====================================================
-// 1. THEME + PALETTE
-// Theme: light / dark. Palette: navy-pink, cream-coral, forest-sand.
-// Both are saved in localStorage so they persist between visits.
+// 1. THEME (light / dark)
 // =====================================================
 const htmlEl = document.documentElement;
 const themeBtn = document.getElementById("theme-toggle");
-const paletteButtons = document.querySelectorAll("[data-p]");
 
 function applyTheme(theme) {
   htmlEl.setAttribute("data-theme", theme);
   if (themeBtn) themeBtn.textContent = theme === "dark" ? "☀️" : "🌙";
   localStorage.setItem("theme", theme);
-}
-
-function applyPalette(palette) {
-  htmlEl.setAttribute("data-palette", palette);
-  localStorage.setItem("palette", palette);
-  paletteButtons.forEach((b) =>
-    b.setAttribute("aria-pressed", String(b.dataset.p === palette))
-  );
 }
 
 if (themeBtn) {
@@ -28,12 +17,7 @@ if (themeBtn) {
   });
 }
 
-paletteButtons.forEach((b) =>
-  b.addEventListener("click", () => applyPalette(b.dataset.p))
-);
-
 applyTheme(localStorage.getItem("theme") || "light");
-applyPalette(localStorage.getItem("palette") || "navy-pink");
 
 // =====================================================
 // 2. SPLIT-FLAP ROLE SWITCHER (auto + click to flip)
@@ -177,8 +161,9 @@ if (activeYearEl && timelineCards.length) {
   );
   timelineCards.forEach((card) => observer.observe(card));
 }
+
 // =====================================================
-// 5. SWATCH HEX LABELS (follow the active palette)
+// 5. SWATCH HEX LABELS (follow the active theme)
 // =====================================================
 function updateSwatches() {
   const styles = getComputedStyle(document.documentElement);
@@ -191,8 +176,7 @@ function updateSwatches() {
 
 updateSwatches();
 
-// Refresh when the palette or theme changes
 new MutationObserver(updateSwatches).observe(htmlEl, {
   attributes: true,
-  attributeFilter: ["data-palette", "data-theme"],
+  attributeFilter: ["data-theme"],
 });
