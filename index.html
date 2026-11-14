@@ -1,236 +1,88 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zanish Rohail | Data Scientist & Python Engineer</title>
+  <title>Zanish Rohail | Creative Data Technologist • 2026</title>
+  
+  <!-- Precompute specialised typography (Neue Haas Grotesk is premium; this is the free close equivalent) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Top Navigation -->
-  <nav class="navbar">
-    <div class="logo">ZR<span>.</span></div>
-    <div class="nav-links">
-      <a href="#doors">Projects</a>
-      <a href="#timeline">Journey</a>
-      <a href="#contact">Contact</a>
-      <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
-    </div>
-  </nav>
+  <!-- The Special WebGL Canvas Layer (Draws behind everything) -->
+  <canvas class="webgl-canvas"></canvas>
 
-  <!-- 1. Architectural Hero with Mechanical Split-Flap Role Switcher -->
-  <header class="hero">
-    <div class="hero-content">
-      <div class="status-pill">
-        <span class="pulse-dot"></span> AVAILABLE FOR REMOTE &amp; FULL-TIME ROLES
+  <!-- The Main Standard Content Layer (Handled by Lenis for smooth scroll) -->
+  <main class="content-wrapper" id="smooth-wrapper">
+    
+    <!-- Navigation (`00:00`) -->
+    <nav class="navbar">
+      <div class="logo">ZR • 2026</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Work</a>
+        <a href="#contact">Lets Talk</a>
       </div>
-      <h1>Building scalable data systems as a</h1>
-      
-      <!-- 3D Split-Flap Mechanical Card -->
-      <div class="flap-wrapper" id="flap-trigger" title="Click to flip role">
-        <div class="flap-card" id="role-card">
-          <div class="flap-hinge"></div>
-          <span id="role-text">Data Scientist</span>
+    </nav>
+
+    <!-- 1. Echo Minimal Hero (`00:00`) -->
+    <header class="echo-hero">
+      <div class="hero-content">
+        <div class="hero-title">
+          EXPLORE MY <br> 
+          <span class="indented">PORTFOLIO.</span>
         </div>
-        <span class="flap-hint">↻ Auto-cycling • Click card to flip</span>
-      </div>
-
-      <p class="hero-sub">
-        Specializing in relational PostgreSQL modeling, production Flask APIs, NLP inference pipelines, and statistical analytics.
-      </p>
-      <div class="hero-cta">
-        <a href="#doors" class="btn-primary">Explore Behind the Doors ↓</a>
-        <a href="https://github.com/zanishcodes7" target="_blank" class="btn-outline">GitHub Profile ↗</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- 2. Interactive Project Doors (All 4 Aligned in 1 Row on Desktop) -->
-  <section id="doors" class="doors-section">
-    <div class="section-header">
-      <span class="tag">INTERACTIVE SHOWCASE</span>
-      <h2>Magic Happens Behind the Doors</h2>
-      <p>Hover to peek inside, or click any door to inspect the architecture and repository.</p>
-    </div>
-
-    <div class="doors-grid">
-      <!-- Door 1: NLP & ML -->
-      <div class="door-wrapper" data-project="nlp" style="--door-accent: #4f46e5;">
-        <div class="door-frame">
-          <div class="door-interior">
-            <span class="badge">NLP &amp; Inference</span>
-            <h3>3-Tier Text Engine</h3>
-            <ul>
-              <li>&lt;2ms Regex Tier 1 routing</li>
-              <li>TF-IDF + LLM fallback</li>
-              <li>Live Flask telemetry API</li>
-            </ul>
-            <span class="click-hint">Click to inspect →</span>
-          </div>
-          <div class="door-leaf">
-            <span class="door-number">01</span>
-            <h3>NLP &amp; Machine Learning</h3>
-            <div class="door-handle"></div>
-          </div>
+        
+        <div class="hero-status">
+          (AVAILABLE • 2026) <br>
+          Based in Rawalpindi.
         </div>
       </div>
+    </header>
 
-      <!-- Door 2: Data Pipelines & ETL -->
-      <div class="door-wrapper" data-project="nasa" style="--door-accent: #0284c7;">
-        <div class="door-frame">
-          <div class="door-interior">
-            <span class="badge">ETL &amp; Statistics</span>
-            <h3>NASA Asteroid Analysis</h3>
-            <ul>
-              <li>Live NASA REST JSON ETL</li>
-              <li>SciPy Welch's t-tests</li>
-              <li>Interactive Chart.js UI</li>
-            </ul>
-            <span class="click-hint">Click to inspect →</span>
-          </div>
-          <div class="door-leaf">
-            <span class="door-number">02</span>
-            <h3>ETL &amp; Statistical Analysis</h3>
-            <div class="door-handle"></div>
-          </div>
-        </div>
+    <!-- 2. The Fluid Shader About Me Section (`00:03`) -->
+    <!-- The WebGL script will target this container, center your `about-image.jpg`, 
+         and apply the distortion mechanics. -->
+    <section class="shader-section" id="about">
+      <div class="shader-text-overlay">
+        <h2>ABOUT <br> ME.</h2>
       </div>
+      <!-- WebGL Canvas will dynamically center itself here via JavaScript -->
+    </section>
 
-      <!-- Door 3: Similarity & Search APIs -->
-      <div class="door-wrapper" data-project="recommender" style="--door-accent: #7c3aed;">
-        <div class="door-frame">
-          <div class="door-interior">
-            <span class="badge">Vectorization</span>
-            <h3>Movie Recommender</h3>
-            <ul>
-              <li>5,000-title TMDB matrix</li>
-              <li>Cosine similarity engine</li>
-              <li>Autocomplete Flask API</li>
-            </ul>
-            <span class="click-hint">Click to inspect →</span>
-          </div>
-          <div class="door-leaf">
-            <span class="door-number">03</span>
-            <h3>Search &amp; Recommender APIs</h3>
-            <div class="door-handle"></div>
-          </div>
-        </div>
+    <!-- 3. Parallax Scrolling Layered Text Section (`00:06`) -->
+    <section class="experience-section">
+      <div class="parallax-container">
+        <h1 class="parallax-text back-text">CREATIVE DATA TECHNOLOGIST</h1>
+        <h1 class="parallax-text front-text">CREATIVE DATA TECHNOLOGIST</h1>
       </div>
+    </section>
 
-      <!-- Door 4: Enterprise ERP & PostgreSQL -->
-      <div class="door-wrapper" data-project="erp" style="--door-accent: #d97706;">
-        <div class="door-frame">
-          <div class="door-interior">
-            <span class="badge">Production Systems</span>
-            <h3>Odoo &amp; PostgreSQL</h3>
-            <ul>
-              <li>Relational ERP schemas</li>
-              <li>Automated data wizards</li>
-              <li>QWeb analytical reports</li>
-            </ul>
-            <span class="click-hint">Click to inspect →</span>
-          </div>
-          <div class="door-leaf">
-            <span class="door-number">04</span>
-            <h3>Database &amp; ERP Engineering</h3>
-            <div class="door-handle"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- ...Placeholder for further sections (Projects Carousel, Lets Talk)... -->
+    <div style="height: 100vh;"></div>
 
-  <!-- Project Detail Modal -->
-  <div id="project-modal" class="modal hidden">
-    <div class="modal-content">
-      <button id="close-modal" class="close-btn">&times;</button>
-      <span id="modal-tag" class="badge"></span>
-      <h2 id="modal-title"></h2>
-      <p id="modal-desc"></p>
-      <div id="modal-stack" class="tech-pills"></div>
-      <ul id="modal-bullets" class="modal-list"></ul>
-      <div class="modal-actions">
-        <a id="modal-github" href="#" target="_blank" class="btn-primary">View Repository on GitHub ↗</a>
-      </div>
-    </div>
-  </div>
+  </main>
 
-  <!-- 3. Sticky Timeline (With Education, Experience & Key Projects) -->
-  <section id="timeline" class="timeline-section">
-    <div class="section-header">
-      <span class="tag">EXPERIENCE, PROJECTS &amp; EDUCATION</span>
-      <h2>Let's Go Back in Time</h2>
-    </div>
-
-    <div class="timeline-layout">
-      <div class="sticky-year-box">
-        <span class="year-label">YEAR</span>
-        <div id="active-year" class="active-year">2026</div>
-      </div>
-
-      <div class="timeline-cards">
-        <!-- 2026: University -->
-        <div class="timeline-card" data-year="2026">
-          <span class="card-period">2026 – Present • Education</span>
-          <h3>BS Data Science — NUML, Islamabad</h3>
-          <p>Pursuing undergraduate coursework in statistical inference, probability theory, linear algebra, data structures, and relational database architecture.</p>
-          <div class="tech-pills">
-            <span>Data Structures</span><span>Probability &amp; Stats</span><span>Linear Algebra</span>
-          </div>
-        </div>
-
-        <!-- 2026: Featured AI & Data Projects -->
-        <div class="timeline-card" data-year="2026">
-          <span class="card-period">2026 • Featured Engineering Projects</span>
-          <h3>NLP Inference, ETL &amp; Recommendation Systems</h3>
-          <p>Built and deployed end-to-end data science and backend applications:</p>
-          <ul class="timeline-project-list">
-            <li>
-              <strong>3-Tier Hybrid Text Classification Engine:</strong> Cascading Regex (&lt;2ms), TF-IDF ML, and LLM fallback API with real-time Flask telemetry.
-              <a href="https://github.com/zanishcodes7/Text-Classification-Engine" target="_blank">Repo ↗</a>
-            </li>
-            <li>
-              <strong>NASA Asteroid Hazard Statistical Analysis:</strong> Automated NASA REST JSON ETL pipeline with two-sample Welch's t-tests in SciPy and Chart.js visualizations.
-              <a href="https://github.com/zanishcodes7/nasa-asteroid-hazard-analysis" target="_blank">Repo ↗</a>
-            </li>
-            <li>
-              <strong>Content-Based Movie Recommender:</strong> 5,000-title TMDB TF-IDF cosine similarity engine served via a low-latency Flask autocomplete API.
-              <a href="https://github.com/zanishcodes7/movie-recommender-tfidf" target="_blank">Repo ↗</a>
-            </li>
-          </ul>
-          <div class="tech-pills">
-            <span>Python</span><span>Flask</span><span>Scikit-Learn</span><span>SciPy</span><span>pandas</span>
-          </div>
-        </div>
-
-        <!-- 2025: Professional Work Experience -->
-        <div class="timeline-card" data-year="2025">
-          <span class="card-period">2025 – 2026 • Professional Experience</span>
-          <h3>Odoo &amp; Python Developer — IT Legends</h3>
-          <p>Engineered relational PostgreSQL data models and production ERP modules across sales, project operations, and financial reporting. Built automated data-conversion wizards and structured QWeb/PDF analytical reports.</p>
-          <div class="tech-pills">
-            <span>Python</span><span>PostgreSQL</span><span>Odoo ORM</span><span>SQL</span><span>QWeb</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer id="contact" class="footer">
-    <h2>Ready to build data-driven products?</h2>
-    <p>Rawalpindi / Islamabad, Pakistan • Available for Remote &amp; Full-Time Roles</p>
-    <div class="footer-links">
-      <a href="mailto:zanish.rohail11@gmail.com">zanish.rohail11@gmail.com</a>
-      <a href="https://linkedin.com/in/zanish-rohail" target="_blank">LinkedIn</a>
-      <a href="https://github.com/zanishcodes7" target="_blank">GitHub</a>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+  <!-- --- specialized ANIMATION STACK (Must be at the end) --- -->
+  
+  <!-- 1. GSAP: The standard core motion engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- GSAP Extension: Scrolls animations smoothly based on scroll position -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- 2. Three.js: The 3D and Shader Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <!-- 3. Lenis: The smooth scrolling engine (From Studio Freight) -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.36/dist/lenis.min.js"></script>
+  
+  <!-- 4. These are the custom scripts we build below -->
+  <script src="shader-engine.js"></script> <!-- Handles the complex shader logic -->
+  <script src="script.js"></script>        <!-- Handles general scrolling/parallax -->
 </body>
 </html>
