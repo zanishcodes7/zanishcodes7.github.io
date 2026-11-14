@@ -1,17 +1,43 @@
-// 1. Theme Switcher (Default Light, toggles to Dark)
-const themeBtn = document.getElementById("theme-toggle");
+// =====================================================
+// 1. THEME + PALETTE
+// Theme: light / dark. Palette: navy-pink, cream-coral, forest-sand.
+// Both are saved in localStorage so they persist between visits.
+// =====================================================
 const htmlEl = document.documentElement;
+const themeBtn = document.getElementById("theme-toggle");
+const paletteButtons = document.querySelectorAll("[data-p]");
 
-themeBtn.textContent = "🌙";
+function applyTheme(theme) {
+  htmlEl.setAttribute("data-theme", theme);
+  if (themeBtn) themeBtn.textContent = theme === "dark" ? "☀️" : "🌙";
+  localStorage.setItem("theme", theme);
+}
 
-themeBtn.addEventListener("click", () => {
-  const current = htmlEl.getAttribute("data-theme");
-  const next = current === "light" ? "dark" : "light";
-  htmlEl.setAttribute("data-theme", next);
-  themeBtn.textContent = next === "light" ? "🌙" : "☀️";
-});
+function applyPalette(palette) {
+  htmlEl.setAttribute("data-palette", palette);
+  localStorage.setItem("palette", palette);
+  paletteButtons.forEach((b) =>
+    b.setAttribute("aria-pressed", String(b.dataset.p === palette))
+  );
+}
 
-// 2. Mechanical 3D Split-Flap Role Switcher (Auto + Click to Flip)
+if (themeBtn) {
+  themeBtn.addEventListener("click", () => {
+    const next = htmlEl.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    applyTheme(next);
+  });
+}
+
+paletteButtons.forEach((b) =>
+  b.addEventListener("click", () => applyPalette(b.dataset.p))
+);
+
+applyTheme(localStorage.getItem("theme") || "light");
+applyPalette(localStorage.getItem("palette") || "navy-pink");
+
+// =====================================================
+// 2. SPLIT-FLAP ROLE SWITCHER (auto + click to flip)
+// =====================================================
 const roles = [
   "Data Scientist",
   "Python Backend Engineer",
@@ -24,6 +50,7 @@ const roleText = document.getElementById("role-text");
 const flapTrigger = document.getElementById("flap-trigger");
 
 function flipRole() {
+  if (!roleCard || !roleText) return;
   roleCard.classList.add("flipping");
   setTimeout(() => {
     roleIndex = (roleIndex + 1) % roles.length;
@@ -34,13 +61,17 @@ function flipRole() {
 
 let autoFlip = setInterval(flipRole, 2800);
 
-flapTrigger.addEventListener("click", () => {
-  clearInterval(autoFlip);
-  flipRole();
-  autoFlip = setInterval(flipRole, 2800);
-});
+if (flapTrigger) {
+  flapTrigger.addEventListener("click", () => {
+    clearInterval(autoFlip);
+    flipRole();
+    autoFlip = setInterval(flipRole, 2800);
+  });
+}
 
-// 3. Project Details Data for Interactive Doors
+// =====================================================
+// 3. PROJECT DATA + MODAL
+// =====================================================
 const projectData = {
   nlp: {
     tag: "NLP & Inference Pipeline",
@@ -52,7 +83,7 @@ const projectData = {
       "Tier 2 Statistical ML (TF-IDF) handles nuanced classification without API overhead.",
       "Tier 3 LLM fallback processes complex edge cases while updating real-time telemetry counters (Total, Praises, Complaints, Questions)."
     ],
-    github: "https://github.com/zanishcodes7/Text-Classification-Engine"
+    github: "https://github.com/zanishcodes7/Text-Classifier-Engine"
   },
   nasa: {
     tag: "ETL & Hypothesis Testing",
@@ -95,45 +126,54 @@ const projectData = {
 const modal = document.getElementById("project-modal");
 const closeModalBtn = document.getElementById("close-modal");
 
+function openModal(key) {
+  const data = projectData[key];
+  if (!data || !modal) return;
+
+  document.getElementById("modal-tag").textContent = data.tag;
+  document.getElementById("modal-title").textContent = data.title;
+  document.getElementById("modal-desc").textContent = data.desc;
+  document.getElementById("modal-github").href = data.github;
+  document.getElementById("modal-stack").innerHTML =
+    data.stack.map((tech) => `<span>${tech}</span>`).join("");
+  document.getElementById("modal-bullets").innerHTML =
+    data.bullets.map((b) => `<li>${b}</li>`).join("");
+
+  modal.classList.remove("hidden");
+}
+
 document.querySelectorAll(".door-wrapper").forEach((door) => {
-  door.addEventListener("click", () => {
-    const key = door.getAttribute("data-project");
-    const data = projectData[key];
-    if (!data) return;
+  door.addEventListener("click", () => openModal(door.getAttribute("data-project")));
+});
 
-    document.getElementById("modal-tag").textContent = data.tag;
-    document.getElementById("modal-title").textContent = data.title;
-    document.getElementById("modal-desc").textContent = data.desc;
-    document.getElementById("modal-github").href = data.github;
-
-    const stackEl = document.getElementById("modal-stack");
-    stackEl.innerHTML = data.stack.map((tech) => `<span>${tech}</span>`).join("");
-
-    const bulletsEl = document.getElementById("modal-bullets");
-    bulletsEl.innerHTML = data.bullets.map((b) => `<li>${b}</li>`).join("");
-
-    modal.classList.remove("hidden");
+if (closeModalBtn) {
+  closeModalBtn.addEventListener("click", () => modal.classList.add("hidden"));
+}
+if (modal) {
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.classList.add("hidden");
   });
+}
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modal) modal.classList.add("hidden");
 });
 
-closeModalBtn.addEventListener("click", () => modal.classList.add("hidden"));
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) modal.classList.add("hidden");
-});
-
-// 4. Sticky Timeline Year Updater on Scroll
+// =====================================================
+// 4. STICKY TIMELINE YEAR UPDATER ON SCROLL
+// =====================================================
 const timelineCards = document.querySelectorAll(".timeline-card");
 const activeYearEl = document.getElementById("active-year");
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        activeYearEl.textContent = entry.target.getAttribute("data-year");
-      }
-    });
-  },
-  { threshold: 0.55 }
-);
-
-timelineCards.forEach((card) => observer.observe(card));
+if (activeYearEl && timelineCards.length) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          activeYearEl.textContent = entry.target.getAttribute("data-year");
+        }
+      });
+    },
+    { threshold: 0.55 }
+  );
+  timelineCards.forEach((card) => observer.observe(card));
+}

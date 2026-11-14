@@ -1,38 +1,97 @@
-/* Navy & Silver Professional Theme */
+/* =====================================================
+   PALETTES
+   Set on <html>: data-palette="navy-pink | cream-coral | forest-sand"
+   Light/dark set on <html>: data-theme="light | dark"
+   ===================================================== */
 
-/* Light Mode: Still crisp and minimal */
-/* Warm Editorial Light Mode (Cream & Electric Cobalt) */
-/* --- Forest Green, Sand Beige & Electric Purple Palette --- */
-
-/* Light Mode: Warm Sand Beige Base with Electric Purple & Forest Accents */
-:root {
-  --bg: #f4f1ea;                 /* Luxurious Sand Beige background */
-  --surface: #ffffff;            /* Crisp white cards floating on sand */
-  --surface-alt: #eae5dc;        /* Slightly deeper sand contrast for sections */
-  --text: #161a17;               /* Deep organic charcoal for maximum readability */
-  --text-muted: #57605a;         /* Muted earthy slate-green */
-  --accent: #8b5cf6;             /* Electric Purple — vibrant, creative pop */
-  --secondary-accent: #1b4d3e;   /* Deep Forest Green for badges and secondary highlights */
-  --border: rgba(22, 26, 23, 0.12);
-  --grid-dot: rgba(22, 26, 23, 0.08);
+/* ---- 1. Navy · White · Hot Pink (default) ---- */
+:root,
+[data-palette="navy-pink"] {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --surface-alt: #e9edf5;
+  --text: #0b1f3a;
+  --text-muted: #5a6a85;
+  --accent: #e6007e;
+  --secondary-accent: #14325c;
+  --on-accent: #ffffff;
+  --border: rgba(11, 31, 58, 0.12);
+  --grid-dot: rgba(11, 31, 58, 0.09);
   --door-number-bg: rgba(255, 255, 255, 0.95);
 }
-
-/* Dark Mode: Deep Forest Green Base with Sand Beige Text & Electric Purple Accents */
-[data-theme="dark"] {
-  --bg: #0f1c16;                 /* Deep, moody Forest Green base */
-  --surface: #162820;            /* Rich moss/forest surface for cards */
-  --surface-alt: #1c3329;        /* Slightly lighter forest tone for doors/sections */
-  --text: #f4f1ea;               /* Soft Sand Beige text for pristine contrast */
-  --text-muted: #9aa8a1;         /* Muted sage/silver-green for descriptions */
-  --accent: #a855f7;             /* Electric Purple — electrifies the dark forest background */
-  --secondary-accent: #34d399;   /* Mint/Emerald secondary pop */
-  --border: rgba(244, 241, 234, 0.12);
-  --grid-dot: rgba(244, 241, 234, 0.08);
-  --door-number-bg: rgba(22, 40, 32, 0.85);
+[data-palette="navy-pink"][data-theme="dark"] {
+  --bg: #0b1f3a;
+  --surface: #132d52;
+  --surface-alt: #1a3863;
+  --text: #ffffff;
+  --text-muted: #a9b8d0;
+  --accent: #ff4fa3;
+  --secondary-accent: #ffffff;
+  --on-accent: #0b1f3a;
+  --border: rgba(255, 255, 255, 0.12);
+  --grid-dot: rgba(255, 255, 255, 0.08);
+  --door-number-bg: rgba(19, 45, 82, 0.85);
 }
 
-/* Reset and Core Global Styles */
+/* ---- 2. Navy · Cream · Coral ---- */
+[data-palette="cream-coral"] {
+  --bg: #faf6ee;
+  --surface: #fffdf8;
+  --surface-alt: #f1eadb;
+  --text: #14213d;
+  --text-muted: #5b6578;
+  --accent: #e8604c;
+  --secondary-accent: #14213d;
+  --on-accent: #ffffff;
+  --border: rgba(20, 33, 61, 0.12);
+  --grid-dot: rgba(20, 33, 61, 0.09);
+  --door-number-bg: rgba(255, 253, 248, 0.95);
+}
+[data-palette="cream-coral"][data-theme="dark"] {
+  --bg: #14213d;
+  --surface: #1c2e52;
+  --surface-alt: #233a66;
+  --text: #faf6ee;
+  --text-muted: #b8c2d6;
+  --accent: #ff8a73;
+  --secondary-accent: #f5e9d3;
+  --on-accent: #14213d;
+  --border: rgba(250, 246, 238, 0.12);
+  --grid-dot: rgba(250, 246, 238, 0.08);
+  --door-number-bg: rgba(28, 46, 82, 0.85);
+}
+
+/* ---- 3. Forest Green · Sand Beige ---- */
+[data-palette="forest-sand"] {
+  --bg: #f3ecdc;
+  --surface: #fbf7ee;
+  --surface-alt: #e8dfc9;
+  --text: #1d3327;
+  --text-muted: #5d6b5f;
+  --accent: #2d6a4f;
+  --secondary-accent: #a67c3d;
+  --on-accent: #fbf7ee;
+  --border: rgba(29, 51, 39, 0.14);
+  --grid-dot: rgba(29, 51, 39, 0.09);
+  --door-number-bg: rgba(251, 247, 238, 0.95);
+}
+[data-palette="forest-sand"][data-theme="dark"] {
+  --bg: #13261d;
+  --surface: #1b3327;
+  --surface-alt: #224131;
+  --text: #f3ecdc;
+  --text-muted: #a6b5a6;
+  --accent: #c9a96e;
+  --secondary-accent: #7fc8a0;
+  --on-accent: #13261d;
+  --border: rgba(243, 236, 220, 0.12);
+  --grid-dot: rgba(243, 236, 220, 0.08);
+  --door-number-bg: rgba(27, 51, 39, 0.85);
+}
+
+/* =====================================================
+   RESET AND GLOBAL
+   ===================================================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -47,7 +106,9 @@ html {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* --- Navigation --- */
+/* =====================================================
+   NAVIGATION
+   ===================================================== */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -65,6 +126,7 @@ html {
   font-weight: 800;
   font-size: 1.5rem;
   letter-spacing: -0.5px;
+  color: var(--text);
 }
 
 .logo span {
@@ -89,6 +151,12 @@ html {
   color: var(--text);
 }
 
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 #theme-toggle {
   background: var(--surface-alt);
   border: 1px solid var(--border);
@@ -97,14 +165,45 @@ html {
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
-[data-theme="dark"] #theme-toggle:hover {
+#theme-toggle:hover {
   background-color: var(--surface);
+  transform: translateY(-1px);
 }
 
-/* --- Hero Section --- */
+/* Palette picker */
+.palette-picker {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.palette-picker button {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.palette-picker button:hover {
+  transform: scale(1.1);
+}
+
+.palette-picker button[aria-pressed="true"] {
+  border-color: var(--text);
+}
+
+[data-p="navy-pink"]   { background: linear-gradient(135deg, #0b1f3a 50%, #e6007e 50%); }
+[data-p="cream-coral"] { background: linear-gradient(135deg, #14213d 50%, #ff8a73 50%); }
+[data-p="forest-sand"] { background: linear-gradient(135deg, #13261d 50%, #c9a96e 50%); }
+
+/* =====================================================
+   HERO
+   ===================================================== */
 .hero {
   min-height: 84vh;
   display: flex;
@@ -113,7 +212,6 @@ html {
   align-items: center;
   text-align: center;
   padding: 4.5rem 8%;
-  /* Engineering Dot Grid is now silver in dark mode */
   background-image: radial-gradient(var(--grid-dot) 1.5px, transparent 1.5px);
   background-size: 26px 26px;
   border-bottom: 1px solid var(--border);
@@ -143,8 +241,8 @@ html {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #10b981;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  background: var(--secondary-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--secondary-accent) 25%, transparent);
 }
 
 .hero h1 {
@@ -152,9 +250,12 @@ html {
   font-weight: 800;
   letter-spacing: -1.2px;
   margin-bottom: 1.4rem;
+  color: var(--text);
 }
 
-/* --- Mechanical 3D Split-Flap Card --- */
+/* =====================================================
+   SPLIT-FLAP ROLE CARD
+   ===================================================== */
 .flap-wrapper {
   perspective: 1100px;
   margin-bottom: 1.85rem;
@@ -166,9 +267,8 @@ html {
 
 .flap-card {
   position: relative;
-  /* Card base is dark-surface/navy in dark mode */
-  background: var(--surface); 
-  color: var(--text); /* Text on the card is silver in dark mode */
+  background: var(--surface);
+  color: var(--text);
   padding: 1.1rem 2.75rem;
   border-radius: 14px;
   font-size: clamp(1.65rem, 3.8vw, 2.85rem);
@@ -182,19 +282,16 @@ html {
 }
 
 [data-theme="dark"] .flap-card {
-  /* Ensure the shadow doesn't look blue */
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
 }
 
-/* Mechanical Split Line */
 .flap-hinge {
   position: absolute;
   left: 0;
   right: 0;
   top: 50%;
   height: 2px;
-  background: rgba(0, 0, 0, 0.4); /* Mechanical part is dark */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: color-mix(in srgb, var(--text) 35%, transparent);
   pointer-events: none;
 }
 
@@ -224,26 +321,28 @@ html {
   justify-content: center;
 }
 
-/* Buttons and Links - Accent is Silver in dark mode */
-.btn-primary, .btn-outline {
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+.btn-primary,
+.btn-outline {
   padding: 0.85rem 1.75rem;
   border-radius: 10px;
   font-weight: 700;
   text-decoration: none;
   font-size: 0.95rem;
-  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s, border-color 0.2s;
 }
 
 .btn-primary {
-  background: var(--accent); /* Silver base in dark mode */
-  color: var(--surface); /* Dark Navy text on silver button */
+  background: var(--accent);
+  color: var(--on-accent);
 }
 
-/* Brighten on hover in dark mode (slightly lighter silver) */
-[data-theme="dark"] .btn-primary:hover {
+.btn-primary:hover {
   transform: translateY(-2px);
-  background-color: #ffffff;
-  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+  background-color: color-mix(in srgb, var(--accent) 85%, #ffffff);
+  box-shadow: 0 8px 26px color-mix(in srgb, var(--accent) 35%, transparent);
 }
 
 .btn-outline {
@@ -253,10 +352,12 @@ html {
 }
 
 .btn-outline:hover {
-  border-color: var(--accent); /* Silver border on hover */
+  border-color: var(--accent);
 }
 
-/* --- Section Headers --- */
+/* =====================================================
+   SECTION HEADERS
+   ===================================================== */
 .section-header {
   text-align: center;
   margin-bottom: 3.5rem;
@@ -276,16 +377,19 @@ html {
   font-weight: 800;
   letter-spacing: -0.5px;
   margin-bottom: 0.5rem;
+  color: var(--text);
 }
 
 .section-header p {
   color: var(--text-muted);
 }
 
-/* --- 3D Interactive Project Doors --- */
+/* =====================================================
+   PROJECT DOORS
+   ===================================================== */
 .doors-section {
   padding: 5.5rem 6%;
-  background: var(--surface-alt); /* Lighter Navy Surface-Alt background */
+  background: var(--surface-alt);
   border-bottom: 1px solid var(--border);
 }
 
@@ -310,10 +414,17 @@ html {
 }
 
 .door-wrapper {
+  --door-accent: var(--accent);
   perspective: 1200px;
   cursor: pointer;
   height: 360px;
 }
+
+/* Each door gets its own accent from the palette */
+.door-wrapper:nth-child(1) { --door-accent: var(--accent); }
+.door-wrapper:nth-child(2) { --door-accent: var(--secondary-accent); }
+.door-wrapper:nth-child(3) { --door-accent: color-mix(in srgb, var(--accent) 65%, var(--text)); }
+.door-wrapper:nth-child(4) { --door-accent: var(--text-muted); }
 
 .door-frame {
   position: relative;
@@ -326,7 +437,6 @@ html {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Interior: Darker navy with silver gradient highlight */
 .door-interior {
   position: absolute;
   inset: 0;
@@ -334,13 +444,15 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: radial-gradient(circle at center, color-mix(in srgb, var(--door-accent) 12%, var(--bg)), var(--bg));
+  background: radial-gradient(circle at center,
+    color-mix(in srgb, var(--door-accent) 14%, var(--bg)),
+    var(--bg));
 }
 
 .door-interior h3 {
   font-size: 1.15rem;
   margin: 0.65rem 0;
-  color: var(--text); /* Silver text interior in dark mode */
+  color: var(--text);
 }
 
 .door-interior ul {
@@ -363,11 +475,10 @@ html {
   color: var(--door-accent);
 }
 
-/* Door Leaf: Silver highlights on dark frame in dark mode */
 .door-leaf {
   position: absolute;
   inset: 0;
-  background: var(--surface); /* Door color is Navy Surface in dark mode */
+  background: var(--surface);
   padding: 1.75rem;
   display: flex;
   flex-direction: column;
@@ -379,7 +490,7 @@ html {
 
 .door-wrapper:hover .door-leaf {
   transform: rotateY(-68deg);
-  box-shadow: 15px 0 35px rgba(0, 0, 0, 0.3);
+  box-shadow: 15px 0 35px rgba(0, 0, 0, 0.2);
 }
 
 .door-number {
@@ -392,7 +503,7 @@ html {
   font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.3;
-  color: var(--text); /* Silver text on dark door leaf in dark mode */
+  color: var(--text);
 }
 
 .door-handle {
@@ -403,11 +514,13 @@ html {
   align-self: flex-end;
 }
 
-/* --- Project Modal --- */
+/* =====================================================
+   MODAL
+   ===================================================== */
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7); /* Standard darker backdrop */
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
@@ -421,14 +534,14 @@ html {
 }
 
 .modal-content {
-  background: var(--surface); /* Navy Surface for model content in dark mode */
+  background: var(--surface);
   border: 1px solid var(--border);
   max-width: 600px;
   width: 100%;
   padding: 2.5rem;
   border-radius: 20px;
   position: relative;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
 }
 
 .close-btn {
@@ -443,7 +556,7 @@ html {
 }
 
 .close-btn:hover {
-  color: var(--accent); /* Close button turns silver on hover */
+  color: var(--accent);
 }
 
 .badge {
@@ -452,14 +565,14 @@ html {
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 700;
-  /* Badge is accent-silver mixed with navy background in dark mode */
-  background: rgba(202, 212, 223, 0.1); 
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
   color: var(--accent);
 }
 
 .modal-content h2 {
   margin: 0.75rem 0 1rem;
   font-size: 1.75rem;
+  color: var(--text);
 }
 
 .modal-content p {
@@ -470,11 +583,13 @@ html {
 
 .modal-list {
   margin: 1.25rem 0 2rem 1.2rem;
-  color: var(--text); /* Silver list text in dark mode */
+  color: var(--text);
   line-height: 1.7;
 }
 
-/* --- Sticky Timeline --- */
+/* =====================================================
+   TIMELINE
+   ===================================================== */
 .timeline-section {
   padding: 6rem 8%;
   max-width: 1150px;
@@ -488,7 +603,6 @@ html {
   align-items: start;
 }
 
-/* Sticky Box: Navy surface with standard shadow */
 .sticky-year-box {
   position: sticky;
   top: 120px;
@@ -497,7 +611,7 @@ html {
   padding: 2rem;
   border-radius: 16px;
   text-align: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .year-label {
@@ -507,7 +621,6 @@ html {
   color: var(--text-muted);
 }
 
-/* Big Year: Accent Silver in dark mode */
 .active-year {
   font-size: 3.5rem;
   font-weight: 800;
@@ -530,10 +643,9 @@ html {
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-/* Card highlight is Silver in dark mode */
 .timeline-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .card-period {
@@ -545,6 +657,7 @@ html {
 .timeline-card h3 {
   font-size: 1.4rem;
   margin: 0.5rem 0 1.1rem;
+  color: var(--text);
 }
 
 .timeline-card p {
@@ -553,7 +666,6 @@ html {
   margin-bottom: 1.15rem;
 }
 
-/* Integrated Projects in Timeline */
 .timeline-project-list {
   margin: 0 0 1.35rem 1.15rem;
   color: var(--text-muted);
@@ -566,10 +678,9 @@ html {
 }
 
 .timeline-project-list strong {
-  color: var(--text); /* Silver text for project titles in dark mode */
+  color: var(--text);
 }
 
-/* Project repo links - Silver in dark mode */
 .timeline-project-list a {
   color: var(--accent);
   font-weight: 700;
@@ -581,7 +692,7 @@ html {
   text-decoration: underline;
 }
 
-/* Tech Pills - Silver accents in dark mode */
+/* Tech pills */
 .tech-pills {
   display: flex;
   flex-wrap: wrap;
@@ -595,20 +706,23 @@ html {
   border-radius: 8px;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--text); /* Silver text interior in dark mode */
+  color: var(--text);
 }
 
-/* --- Footer --- */
+/* =====================================================
+   FOOTER
+   ===================================================== */
 .footer {
   text-align: center;
   padding: 4rem 8%;
   border-top: 1px solid var(--border);
-  background: var(--surface-alt); /* Footer is lighter Navy background */
+  background: var(--surface-alt);
 }
 
 .footer h2 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
+  color: var(--text);
 }
 
 .footer p {
@@ -623,7 +737,6 @@ html {
   flex-wrap: wrap;
 }
 
-/* Footer links - Silver in dark mode */
 .footer-links a {
   color: var(--accent);
   font-weight: 700;
@@ -634,7 +747,17 @@ html {
   text-decoration: underline;
 }
 
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
 @media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .nav-controls {
+    flex-wrap: wrap;
+  }
   .timeline-layout {
     grid-template-columns: 1fr;
   }
