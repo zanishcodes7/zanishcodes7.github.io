@@ -144,10 +144,6 @@ a {
 }
 
 .hero-grid {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 4rem;
-  align-items: center;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;

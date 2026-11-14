@@ -161,22 +161,3 @@ if (activeYearEl && timelineCards.length) {
   );
   timelineCards.forEach((card) => observer.observe(card));
 }
-
-// =====================================================
-// 5. SWATCH HEX LABELS (follow the active theme)
-// =====================================================
-function updateSwatches() {
-  const styles = getComputedStyle(document.documentElement);
-  document.querySelectorAll(".swatch").forEach((sw) => {
-    const value = styles.getPropertyValue(sw.dataset.var).trim();
-    const hex = value.startsWith("#") ? value.toUpperCase() : value;
-    sw.querySelector(".sw-hex").textContent = hex;
-  });
-}
-
-updateSwatches();
-
-new MutationObserver(updateSwatches).observe(htmlEl, {
-  attributes: true,
-  attributeFilter: ["data-theme"],
-});
