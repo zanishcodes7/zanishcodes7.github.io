@@ -2,35 +2,34 @@
 
 /* Light Mode: Still crisp and minimal */
 /* Warm Editorial Light Mode (Cream & Electric Cobalt) */
+/* --- Forest Green, Sand Beige & Electric Purple Palette --- */
+
+/* Light Mode: Warm Sand Beige Base with Electric Purple & Forest Accents */
 :root {
-  --bg: #f8f7f4;                 /* Soft, warm bone/cream background (replaces blinding white) */
-  --surface: #ffffff;            /* Crisp white cards floating on the cream background */
-  --surface-alt: #f0eee6;        /* Subtle textured contrast for sections */
-  --text: #111418;               /* Deep charcoal for ultra-crisp readability */
-  --text-muted: #5e6673;         /* Balanced slate grey for subtext */
-  --accent: #2563eb;             /* Electric Cobalt — vibrant, professional, and sharp */
-  --border: rgba(17, 20, 24, 0.12); /* Clean, subtle borders */
-  --grid-dot: rgba(17, 20, 24, 0.08); /* Soft engineering grid */
+  --bg: #f4f1ea;                 /* Luxurious Sand Beige background */
+  --surface: #ffffff;            /* Crisp white cards floating on sand */
+  --surface-alt: #eae5dc;        /* Slightly deeper sand contrast for sections */
+  --text: #161a17;               /* Deep organic charcoal for maximum readability */
+  --text-muted: #57605a;         /* Muted earthy slate-green */
+  --accent: #8b5cf6;             /* Electric Purple — vibrant, creative pop */
+  --secondary-accent: #1b4d3e;   /* Deep Forest Green for badges and secondary highlights */
+  --border: rgba(22, 26, 23, 0.12);
+  --grid-dot: rgba(22, 26, 23, 0.08);
   --door-number-bg: rgba(255, 255, 255, 0.95);
 }
 
-/* Dark Mode: The New Navy and Silver Palette (from inspo) */
+/* Dark Mode: Deep Forest Green Base with Sand Beige Text & Electric Purple Accents */
 [data-theme="dark"] {
-  /* BACKGROUND: Deep Navy Base (The color '1' in your inspo) */
-  --bg: #0d1a33; 
-  --surface: #112241; /* Slightly lighter navy for cards and depth */
-  --surface-alt: #162c53; /* Darker navy for section backgrounds like Doors */
-
-  /* TEXT: Silver/White (The primary 'silver blue' from inspo) */
-  --text: #e0e6ed; /* Main body and heading silver text */
-  --text-muted: #abb4be; /* A muted silver-grey for subtext and descriptions */
-
-  /* ACCENT: Lighter Silver/Blue (Color '2'/'Silver blue' from inspo) */
-  --accent: #cad4df; /* Bright silver for links, buttons, and highlights */
-  
-  --border: rgba(202, 212, 223, 0.15); /* Thin silver-blue borders */
-  --grid-dot: rgba(202, 212, 223, 0.12); /* Silver engineering grid */
-  --door-number-bg: rgba(17, 34, 65, 0.85); /* Slightly transparent surface color for numbers */
+  --bg: #0f1c16;                 /* Deep, moody Forest Green base */
+  --surface: #162820;            /* Rich moss/forest surface for cards */
+  --surface-alt: #1c3329;        /* Slightly lighter forest tone for doors/sections */
+  --text: #f4f1ea;               /* Soft Sand Beige text for pristine contrast */
+  --text-muted: #9aa8a1;         /* Muted sage/silver-green for descriptions */
+  --accent: #a855f7;             /* Electric Purple — electrifies the dark forest background */
+  --secondary-accent: #34d399;   /* Mint/Emerald secondary pop */
+  --border: rgba(244, 241, 234, 0.12);
+  --grid-dot: rgba(244, 241, 234, 0.08);
+  --door-number-bg: rgba(22, 40, 32, 0.85);
 }
 
 /* Reset and Core Global Styles */
