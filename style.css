@@ -1,26 +1,39 @@
-/* Refined Crisp Studio Theme (Light Mode Default) */
+/* Navy & Silver Professional Theme */
+
+/* Light Mode: Still crisp and minimal */
+/* Warm Editorial Light Mode (Cream & Electric Cobalt) */
 :root {
-  --bg: #ffffff;
-  --surface: #ffffff;
-  --surface-alt: #f8fafc;
-  --text: #0f172a;
-  --text-muted: #475569;
-  --accent: #4f46e5;
-  --border: #e2e8f0;
-  --grid-dot: rgba(15, 23, 42, 0.08);
+  --bg: #f8f7f4;                 /* Soft, warm bone/cream background (replaces blinding white) */
+  --surface: #ffffff;            /* Crisp white cards floating on the cream background */
+  --surface-alt: #f0eee6;        /* Subtle textured contrast for sections */
+  --text: #111418;               /* Deep charcoal for ultra-crisp readability */
+  --text-muted: #5e6673;         /* Balanced slate grey for subtext */
+  --accent: #2563eb;             /* Electric Cobalt — vibrant, professional, and sharp */
+  --border: rgba(17, 20, 24, 0.12); /* Clean, subtle borders */
+  --grid-dot: rgba(17, 20, 24, 0.08); /* Soft engineering grid */
+  --door-number-bg: rgba(255, 255, 255, 0.95);
 }
 
+/* Dark Mode: The New Navy and Silver Palette (from inspo) */
 [data-theme="dark"] {
-  --bg: #090d16;
-  --surface: #111827;
-  --surface-alt: #0d1320;
-  --text: #f8fafc;
-  --text-muted: #94a3b8;
-  --accent: #818cf8;
-  --border: rgba(255, 255, 255, 0.09);
-  --grid-dot: rgba(255, 255, 255, 0.07);
+  /* BACKGROUND: Deep Navy Base (The color '1' in your inspo) */
+  --bg: #0d1a33; 
+  --surface: #112241; /* Slightly lighter navy for cards and depth */
+  --surface-alt: #162c53; /* Darker navy for section backgrounds like Doors */
+
+  /* TEXT: Silver/White (The primary 'silver blue' from inspo) */
+  --text: #e0e6ed; /* Main body and heading silver text */
+  --text-muted: #abb4be; /* A muted silver-grey for subtext and descriptions */
+
+  /* ACCENT: Lighter Silver/Blue (Color '2'/'Silver blue' from inspo) */
+  --accent: #cad4df; /* Bright silver for links, buttons, and highlights */
+  
+  --border: rgba(202, 212, 223, 0.15); /* Thin silver-blue borders */
+  --grid-dot: rgba(202, 212, 223, 0.12); /* Silver engineering grid */
+  --door-number-bg: rgba(17, 34, 65, 0.85); /* Slightly transparent surface color for numbers */
 }
 
+/* Reset and Core Global Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -35,7 +48,7 @@ html {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Navbar */
+/* --- Navigation --- */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -44,7 +57,7 @@ html {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
@@ -85,9 +98,14 @@ html {
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
+  transition: background-color 0.2s;
 }
 
-/* Hero Section with Subtle Engineering Dot-Grid */
+[data-theme="dark"] #theme-toggle:hover {
+  background-color: var(--surface);
+}
+
+/* --- Hero Section --- */
 .hero {
   min-height: 84vh;
   display: flex;
@@ -96,6 +114,7 @@ html {
   align-items: center;
   text-align: center;
   padding: 4.5rem 8%;
+  /* Engineering Dot Grid is now silver in dark mode */
   background-image: radial-gradient(var(--grid-dot) 1.5px, transparent 1.5px);
   background-size: 26px 26px;
   border-bottom: 1px solid var(--border);
@@ -136,7 +155,7 @@ html {
   margin-bottom: 1.4rem;
 }
 
-/* 3D Split-Flap Mechanical Card */
+/* --- Mechanical 3D Split-Flap Card --- */
 .flap-wrapper {
   perspective: 1100px;
   margin-bottom: 1.85rem;
@@ -148,35 +167,35 @@ html {
 
 .flap-card {
   position: relative;
-  background: #0f172a;
-  color: #ffffff;
+  /* Card base is dark-surface/navy in dark mode */
+  background: var(--surface); 
+  color: var(--text); /* Text on the card is silver in dark mode */
   padding: 1.1rem 2.75rem;
   border-radius: 14px;
   font-size: clamp(1.65rem, 3.8vw, 2.85rem);
   font-weight: 800;
   letter-spacing: -0.5px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.15);
   transform-style: preserve-3d;
   transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
   user-select: none;
 }
 
 [data-theme="dark"] .flap-card {
-  background: #1e293b;
-  border-color: rgba(129, 140, 248, 0.35);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  /* Ensure the shadow doesn't look blue */
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
 }
 
-/* Center Mechanical Split-Flap Hinge Line */
+/* Mechanical Split Line */
 .flap-hinge {
   position: absolute;
   left: 0;
   right: 0;
   top: 50%;
   height: 2px;
-  background: rgba(0, 0, 0, 0.55);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.4); /* Mechanical part is dark */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   pointer-events: none;
 }
 
@@ -206,23 +225,26 @@ html {
   justify-content: center;
 }
 
+/* Buttons and Links - Accent is Silver in dark mode */
 .btn-primary, .btn-outline {
   padding: 0.85rem 1.75rem;
   border-radius: 10px;
   font-weight: 700;
   text-decoration: none;
   font-size: 0.95rem;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
 }
 
 .btn-primary {
-  background: var(--accent);
-  color: #ffffff;
+  background: var(--accent); /* Silver base in dark mode */
+  color: var(--surface); /* Dark Navy text on silver button */
 }
 
-.btn-primary:hover {
+/* Brighten on hover in dark mode (slightly lighter silver) */
+[data-theme="dark"] .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+  background-color: #ffffff;
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
 }
 
 .btn-outline {
@@ -232,10 +254,10 @@ html {
 }
 
 .btn-outline:hover {
-  border-color: var(--accent);
+  border-color: var(--accent); /* Silver border on hover */
 }
 
-/* Section Headers */
+/* --- Section Headers --- */
 .section-header {
   text-align: center;
   margin-bottom: 3.5rem;
@@ -261,10 +283,10 @@ html {
   color: var(--text-muted);
 }
 
-/* 3D Interactive Doors — All 4 Aligned in 1 Row on Desktop */
+/* --- 3D Interactive Project Doors --- */
 .doors-section {
   padding: 5.5rem 6%;
-  background: var(--surface-alt);
+  background: var(--surface-alt); /* Lighter Navy Surface-Alt background */
   border-bottom: 1px solid var(--border);
 }
 
@@ -302,9 +324,10 @@ html {
   border: 2px solid var(--door-accent);
   background: var(--surface);
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
+/* Interior: Darker navy with silver gradient highlight */
 .door-interior {
   position: absolute;
   inset: 0;
@@ -312,12 +335,13 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: radial-gradient(circle at center, color-mix(in srgb, var(--door-accent) 12%, var(--surface)), var(--surface));
+  background: radial-gradient(circle at center, color-mix(in srgb, var(--door-accent) 12%, var(--bg)), var(--bg));
 }
 
 .door-interior h3 {
   font-size: 1.15rem;
   margin: 0.65rem 0;
+  color: var(--text); /* Silver text interior in dark mode */
 }
 
 .door-interior ul {
@@ -340,10 +364,11 @@ html {
   color: var(--door-accent);
 }
 
+/* Door Leaf: Silver highlights on dark frame in dark mode */
 .door-leaf {
   position: absolute;
   inset: 0;
-  background: var(--surface);
+  background: var(--surface); /* Door color is Navy Surface in dark mode */
   padding: 1.75rem;
   display: flex;
   flex-direction: column;
@@ -355,7 +380,7 @@ html {
 
 .door-wrapper:hover .door-leaf {
   transform: rotateY(-68deg);
-  box-shadow: 15px 0 35px rgba(0, 0, 0, 0.16);
+  box-shadow: 15px 0 35px rgba(0, 0, 0, 0.3);
 }
 
 .door-number {
@@ -368,6 +393,7 @@ html {
   font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.3;
+  color: var(--text); /* Silver text on dark door leaf in dark mode */
 }
 
 .door-handle {
@@ -378,11 +404,11 @@ html {
   align-self: flex-end;
 }
 
-/* Modal */
+/* --- Project Modal --- */
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.65);
+  background: rgba(0, 0, 0, 0.7); /* Standard darker backdrop */
   backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
@@ -396,13 +422,14 @@ html {
 }
 
 .modal-content {
-  background: var(--surface);
+  background: var(--surface); /* Navy Surface for model content in dark mode */
   border: 1px solid var(--border);
   max-width: 600px;
   width: 100%;
   padding: 2.5rem;
   border-radius: 20px;
   position: relative;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
 }
 
 .close-btn {
@@ -416,13 +443,18 @@ html {
   cursor: pointer;
 }
 
+.close-btn:hover {
+  color: var(--accent); /* Close button turns silver on hover */
+}
+
 .badge {
   display: inline-block;
   padding: 0.3rem 0.75rem;
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 700;
-  background: rgba(79, 70, 229, 0.1);
+  /* Badge is accent-silver mixed with navy background in dark mode */
+  background: rgba(202, 212, 223, 0.1); 
   color: var(--accent);
 }
 
@@ -439,11 +471,11 @@ html {
 
 .modal-list {
   margin: 1.25rem 0 2rem 1.2rem;
-  color: var(--text);
+  color: var(--text); /* Silver list text in dark mode */
   line-height: 1.7;
 }
 
-/* Sticky Timeline */
+/* --- Sticky Timeline --- */
 .timeline-section {
   padding: 6rem 8%;
   max-width: 1150px;
@@ -457,6 +489,7 @@ html {
   align-items: start;
 }
 
+/* Sticky Box: Navy surface with standard shadow */
 .sticky-year-box {
   position: sticky;
   top: 120px;
@@ -465,7 +498,7 @@ html {
   padding: 2rem;
   border-radius: 16px;
   text-align: center;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .year-label {
@@ -475,6 +508,7 @@ html {
   color: var(--text-muted);
 }
 
+/* Big Year: Accent Silver in dark mode */
 .active-year {
   font-size: 3.5rem;
   font-weight: 800;
@@ -497,9 +531,10 @@ html {
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
+/* Card highlight is Silver in dark mode */
 .timeline-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.07);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .card-period {
@@ -510,7 +545,7 @@ html {
 
 .timeline-card h3 {
   font-size: 1.4rem;
-  margin: 0.5rem 0 0.85rem;
+  margin: 0.5rem 0 1.1rem;
 }
 
 .timeline-card p {
@@ -519,6 +554,7 @@ html {
   margin-bottom: 1.15rem;
 }
 
+/* Integrated Projects in Timeline */
 .timeline-project-list {
   margin: 0 0 1.35rem 1.15rem;
   color: var(--text-muted);
@@ -531,9 +567,10 @@ html {
 }
 
 .timeline-project-list strong {
-  color: var(--text);
+  color: var(--text); /* Silver text for project titles in dark mode */
 }
 
+/* Project repo links - Silver in dark mode */
 .timeline-project-list a {
   color: var(--accent);
   font-weight: 700;
@@ -545,6 +582,7 @@ html {
   text-decoration: underline;
 }
 
+/* Tech Pills - Silver accents in dark mode */
 .tech-pills {
   display: flex;
   flex-wrap: wrap;
@@ -558,14 +596,15 @@ html {
   border-radius: 8px;
   font-size: 0.8rem;
   font-weight: 600;
+  color: var(--text); /* Silver text interior in dark mode */
 }
 
-/* Footer */
+/* --- Footer --- */
 .footer {
   text-align: center;
   padding: 4rem 8%;
   border-top: 1px solid var(--border);
-  background: var(--surface-alt);
+  background: var(--surface-alt); /* Footer is lighter Navy background */
 }
 
 .footer h2 {
@@ -585,10 +624,15 @@ html {
   flex-wrap: wrap;
 }
 
+/* Footer links - Silver in dark mode */
 .footer-links a {
   color: var(--accent);
   font-weight: 700;
   text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
