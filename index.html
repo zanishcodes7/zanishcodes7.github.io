@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="light" data-palette="navy-pink">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zanish Rohail | Data Scientist & Python Engineer</title>
+  <meta name="description" content="Zanish Rohail, Data Scientist and Python Engineer. NLP pipelines, statistical analysis, Flask APIs, and PostgreSQL systems." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -18,38 +19,56 @@
       <a href="#doors">Projects</a>
       <a href="#timeline">Journey</a>
       <a href="#contact">Contact</a>
-      <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+      <div class="nav-controls">
+        <div class="palette-picker">
+          <button data-p="navy-pink" aria-label="Navy, white and hot pink"></button>
+          <button data-p="cream-coral" aria-label="Navy, cream and coral"></button>
+          <button data-p="forest-sand" aria-label="Forest green and sand beige"></button>
+        </div>
+        <button id="theme-toggle" aria-label="Toggle light and dark mode">🌙</button>
+      </div>
     </div>
   </nav>
 
-  <!-- 1. Architectural Hero with Mechanical Split-Flap Role Switcher -->
-  <header class="hero">
-    <div class="hero-content">
-      <div class="status-pill">
-        <span class="pulse-dot"></span> AVAILABLE FOR REMOTE &amp; FULL-TIME ROLES
-      </div>
-      <h1>Building scalable data systems as a</h1>
-      
-      <!-- 3D Split-Flap Mechanical Card -->
-      <div class="flap-wrapper" id="flap-trigger" title="Click to flip role">
-        <div class="flap-card" id="role-card">
-          <div class="flap-hinge"></div>
-          <span id="role-text">Data Scientist</span>
+  <!-- 1. Editorial Hero with Split-Flap Role Switcher and Palette Swatches -->
+  <header class="hero hero-editorial">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <span class="status-pill">
+          <span class="pulse-dot"></span> AVAILABLE FOR REMOTE &amp; FULL-TIME ROLES
+        </span>
+
+        <h1 class="hero-name">Zanish<br><em>Rohail</em></h1>
+
+        <div class="flap-wrapper" id="flap-trigger" title="Click to flip role">
+          <div class="flap-card" id="role-card">
+            <div class="flap-hinge"></div>
+            <span id="role-text">Data Scientist</span>
+          </div>
+          <span class="flap-hint">↻ Auto-cycling • Click card to flip</span>
         </div>
-        <span class="flap-hint">↻ Auto-cycling • Click card to flip</span>
+
+        <p class="hero-sub">
+          Specializing in relational PostgreSQL modeling, production Flask APIs, NLP inference pipelines, and statistical analytics.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#doors" class="btn-primary">Explore Behind the Doors ↓</a>
+          <a href="https://github.com/zanishcodes7" target="_blank" class="btn-outline">GitHub Profile ↗</a>
+        </div>
       </div>
 
-      <p class="hero-sub">
-        Specializing in relational PostgreSQL modeling, production Flask APIs, NLP inference pipelines, and statistical analytics.
-      </p>
-      <div class="hero-cta">
-        <a href="#doors" class="btn-primary">Explore Behind the Doors ↓</a>
-        <a href="https://github.com/zanishcodes7" target="_blank" class="btn-outline">GitHub Profile ↗</a>
-      </div>
+      <aside class="swatch-stack" aria-label="Current palette">
+        <div class="swatch" data-var="--bg"><span class="sw-name">Background</span><span class="sw-hex"></span></div>
+        <div class="swatch" data-var="--surface"><span class="sw-name">Surface</span><span class="sw-hex"></span></div>
+        <div class="swatch" data-var="--accent"><span class="sw-name">Accent</span><span class="sw-hex"></span></div>
+        <div class="swatch" data-var="--secondary-accent"><span class="sw-name">Secondary</span><span class="sw-hex"></span></div>
+        <div class="swatch" data-var="--text"><span class="sw-name">Text</span><span class="sw-hex"></span></div>
+      </aside>
     </div>
   </header>
 
-  <!-- 2. Interactive Project Doors (All 4 Aligned in 1 Row on Desktop) -->
+  <!-- 2. Interactive Project Doors -->
   <section id="doors" class="doors-section">
     <div class="section-header">
       <span class="tag">INTERACTIVE SHOWCASE</span>
@@ -59,7 +78,7 @@
 
     <div class="doors-grid">
       <!-- Door 1: NLP & ML -->
-      <div class="door-wrapper" data-project="nlp" style="--door-accent: #4f46e5;">
+      <div class="door-wrapper" data-project="nlp">
         <div class="door-frame">
           <div class="door-interior">
             <span class="badge">NLP &amp; Inference</span>
@@ -79,8 +98,8 @@
         </div>
       </div>
 
-      <!-- Door 2: Data Pipelines & ETL -->
-      <div class="door-wrapper" data-project="nasa" style="--door-accent: #0284c7;">
+      <!-- Door 2: ETL & Statistics -->
+      <div class="door-wrapper" data-project="nasa">
         <div class="door-frame">
           <div class="door-interior">
             <span class="badge">ETL &amp; Statistics</span>
@@ -101,7 +120,7 @@
       </div>
 
       <!-- Door 3: Similarity & Search APIs -->
-      <div class="door-wrapper" data-project="recommender" style="--door-accent: #7c3aed;">
+      <div class="door-wrapper" data-project="recommender">
         <div class="door-frame">
           <div class="door-interior">
             <span class="badge">Vectorization</span>
@@ -122,7 +141,7 @@
       </div>
 
       <!-- Door 4: Enterprise ERP & PostgreSQL -->
-      <div class="door-wrapper" data-project="erp" style="--door-accent: #d97706;">
+      <div class="door-wrapper" data-project="erp">
         <div class="door-frame">
           <div class="door-interior">
             <span class="badge">Production Systems</span>
@@ -147,7 +166,7 @@
   <!-- Project Detail Modal -->
   <div id="project-modal" class="modal hidden">
     <div class="modal-content">
-      <button id="close-modal" class="close-btn">&times;</button>
+      <button id="close-modal" class="close-btn" aria-label="Close">&times;</button>
       <span id="modal-tag" class="badge"></span>
       <h2 id="modal-title"></h2>
       <p id="modal-desc"></p>
@@ -159,7 +178,7 @@
     </div>
   </div>
 
-  <!-- 3. Sticky Timeline (With Education, Experience & Key Projects) -->
+  <!-- 3. Timeline -->
   <section id="timeline" class="timeline-section">
     <div class="section-header">
       <span class="tag">EXPERIENCE, PROJECTS &amp; EDUCATION</span>
@@ -173,7 +192,7 @@
       </div>
 
       <div class="timeline-cards">
-        <!-- 2026: University -->
+        <!-- 2026: Education -->
         <div class="timeline-card" data-year="2026">
           <span class="card-period">2026 – Present • Education</span>
           <h3>BS Data Science — NUML, Islamabad</h3>
@@ -183,7 +202,7 @@
           </div>
         </div>
 
-        <!-- 2026: Featured AI & Data Projects -->
+        <!-- 2026: Featured Projects -->
         <div class="timeline-card" data-year="2026">
           <span class="card-period">2026 • Featured Engineering Projects</span>
           <h3>NLP Inference, ETL &amp; Recommendation Systems</h3>
@@ -191,7 +210,7 @@
           <ul class="timeline-project-list">
             <li>
               <strong>3-Tier Hybrid Text Classification Engine:</strong> Cascading Regex (&lt;2ms), TF-IDF ML, and LLM fallback API with real-time Flask telemetry.
-              <a href="https://github.com/zanishcodes7/Text-Classification-Engine" target="_blank">Repo ↗</a>
+              <a href="https://github.com/zanishcodes7/Text-Classifier-Engine" target="_blank">Repo ↗</a>
             </li>
             <li>
               <strong>NASA Asteroid Hazard Statistical Analysis:</strong> Automated NASA REST JSON ETL pipeline with two-sample Welch's t-tests in SciPy and Chart.js visualizations.
@@ -207,7 +226,7 @@
           </div>
         </div>
 
-        <!-- 2025: Professional Work Experience -->
+        <!-- 2025: Professional Experience -->
         <div class="timeline-card" data-year="2025">
           <span class="card-period">2025 – 2026 • Professional Experience</span>
           <h3>Odoo &amp; Python Developer — IT Legends</h3>

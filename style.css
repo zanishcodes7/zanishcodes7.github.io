@@ -772,3 +772,114 @@ html {
     font-size: 2rem;
   }
 }
+/* =====================================================
+   EDITORIAL HERO (reference: oversized serif + swatch stack)
+   ===================================================== */
+.hero-editorial {
+  min-height: 92vh;
+  align-items: stretch;
+  justify-content: center;
+  text-align: left;
+  padding: 5rem 8%;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-left .status-pill { margin-bottom: 1.25rem; }
+
+.hero-name {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(4rem, 11vw, 9.5rem);
+  line-height: 0.9;
+  letter-spacing: -2px;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-editorial .flap-wrapper {
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.hero-editorial .flap-card {
+  font-size: clamp(1.2rem, 2.4vw, 1.75rem);
+  padding: 0.85rem 1.75rem;
+}
+
+.hero-editorial .hero-sub {
+  margin: 0 0 2rem 0;
+  max-width: 520px;
+}
+
+.hero-editorial .hero-cta { justify-content: flex-start; }
+
+/* Swatch stack, same idea as the video: name + hex per color */
+.swatch-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.swatch {
+  position: relative;
+  height: 96px;
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: var(--sw, var(--surface));
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.35s ease, background-color 0.5s ease;
+}
+
+.swatch:hover { transform: translateX(-6px); }
+
+.swatch[data-var="--bg"]               { --sw: var(--bg); }
+.swatch[data-var="--surface"]          { --sw: var(--surface); }
+.swatch[data-var="--accent"]           { --sw: var(--accent); }
+.swatch[data-var="--secondary-accent"] { --sw: var(--secondary-accent); }
+.swatch[data-var="--text"]             { --sw: var(--text); }
+
+.swatch .sw-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--on-accent);
+}
+
+.swatch .sw-hex {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--on-accent);
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+/* Swatch text must contrast with each swatch, so use the opposite color */
+.swatch[data-var="--bg"] .sw-name,
+.swatch[data-var="--bg"] .sw-hex,
+.swatch[data-var="--surface"] .sw-name,
+.swatch[data-var="--surface"] .sw-hex { color: var(--text); }
+
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .swatch-stack { flex-direction: row; flex-wrap: wrap; }
+  .swatch { flex: 1 1 140px; height: 80px; }
+  .swatch:hover { transform: none; }
+}

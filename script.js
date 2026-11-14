@@ -177,3 +177,22 @@ if (activeYearEl && timelineCards.length) {
   );
   timelineCards.forEach((card) => observer.observe(card));
 }
+// =====================================================
+// 5. SWATCH HEX LABELS (follow the active palette)
+// =====================================================
+function updateSwatches() {
+  const styles = getComputedStyle(document.documentElement);
+  document.querySelectorAll(".swatch").forEach((sw) => {
+    const value = styles.getPropertyValue(sw.dataset.var).trim();
+    const hex = value.startsWith("#") ? value.toUpperCase() : value;
+    sw.querySelector(".sw-hex").textContent = hex;
+  });
+}
+
+updateSwatches();
+
+// Refresh when the palette or theme changes
+new MutationObserver(updateSwatches).observe(htmlEl, {
+  attributes: true,
+  attributeFilter: ["data-palette", "data-theme"],
+});
